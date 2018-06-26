@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pictures - Quantarks&trade; REST APIs</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../src/index.css">
+</head>
+
+<style>
+
+</style>
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="../index.html">Quantarks</a></li>
+        </ul>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#!">Docs</a></li>
+            <li><a href="#!">About</a></li>
+        </ul>
+    </nav>
+    <div class="padding-fix"></div>
+    <header class="banner">
+        <small class="site-title">Quantarks&trade;</small>
+        <h1>REST: Usage and Dangers Picture Service</h1>
+    </header>
+    <nav class="breadcrumbs">
+        <ul>
+            <li class="breadcrumb"><a href="../index.html">Quantarks&trade; API Docs</a></li>
+            <li class="breadcrumb"><a href="../rest/index.html">REST APIs</a></li>
+            <li class="breadcrumb"><a href="../rest/pictures.html">Picture Service</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="spec-section">
+            <p>The Quantarks&trade; app displays photos of an element's usage. As of the moment, this is only available online. The images must be compressed, possibly by <code>gzip</code> to save the users' bandwidth.</p>
+        </section>
+        <section class="spec-section">
+            <header>
+                <h2>Endpoints</h2>
+            </header>
+            The Pictures service can be accessed through <code>POST</code> requests sent to the endpoint
+            <pre class="code">https://quantarks.dev/api/pictures/</pre>
+
+            <section>
+                <header>
+                    <h3>Parameters</h3>
+                </header>
+                <ul class="method-list">
+                    <li class="method-item">
+                        <div class="method">
+                            <header>
+                                <h4><code>token</code></h4>
+                            </header>
+                            <p>A string that must come with the request to authenticate an access to the API. This is not available to the public and can only be used within the Quantarks&trade; app. This token, as of the moment is generated inside the Quantarks&trade; app.</p>
+                            <aside class="aside-box warning">
+                                <header>Warning</header>
+                                <p>
+                                    The API returns an <a href="../errors/err_credential_none.html"><code class="returns">ERR_CREDENTIAL_NONE</code></a> error if no token has been provided.
+                                </p>
+                                <p>
+                                    The API returns an <a href="../errors/err_credential_invalid.html"><code class="returns">ERR_CREDENTIAL_INVALID</code></a> error if the token sent is invalid.
+                                </p>
+                            </aside>
+                        </div>
+                    </li>
+                    <li class="method-item">
+                        <div class="method">
+                            <header>
+                                <h4><code>atomic_number</code></h4>
+                            </header>
+                            <p>An integer that represents the atomic number of the element of which the API will return photos of.</p>
+                            <aside class="aside-box warning">
+                                <header>Warning</header>
+                                <p>
+                                    The API returns an <a href="../errors/err_param_invalid.html"><code class="returns">ERR_PARAM_INVALID</code></a> if the atomic number is either of the following:
+                                    <ul>
+                                        <li>A string that cannot be parsed into an integer</li>
+                                        <li>An integer that is less than 1 or <code class="var">MAX_ATOMIC_NUMBER</code> (<code class="kw">118</code> as of 2018)</li>
+                                    </ul>
+                                </p>
+                                <p>The API returns an <a href="../errors/err_param_missing.html"><code class="returns">ERR_PARAM_MISSING</code></a> if the parameter has not been provided.</p>
+                            </aside>
+                        </div>
+                    </li>
+                    <li class="method-item">
+                        <div class="method">
+                            <header>
+                                <h4><code>classification</code> <small>DEFAULT: <code class="var">"all"</code></small></h4>
+                            </header>
+                            <p>A string that indicates the type of images to be returned by the API, that is, if it is the dangers of the element, the uses, or both.</p>
+                            <p>
+                                <strong>Possible values:</strong>
+                                <pre class="code">[ <code class="var">"all"</code>, <code class="var">"dangers"</code>, <code class="var">"uses"</code> ]</pre>
+                            </p>
+                            <aside class="aside-box warning">
+                                <header>Warning</header>
+                                <p>
+                                    The API returns an <a href="../errors/err_param_invalid.html"><code class="returns">ERR_PARAM_INVALID</code></a> if the supplied argument is not in the list of possible values.
+                                </p>
+                            </aside>
+                            <aside class="aside-box info">
+                                <header>Notice</header>
+                                <p>This parameter defaults to <code class="var">"all"</code> if this parameter is not passed with the request.</p>
+                            </aside>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section class="spec-section">
+            <header>
+                <h3>Return Values</h3>
+            </header>
+            <p>
+                The API returns a JSON string that follows this format:
+                <pre class="code">
+[
+    <code class="returns">"code"</code>: <code class="val">"NO_ERROR"</code>,
+    <code class="returns">"message"</code>: <code class="val">"Success"</code>,
+    <code class="returns">"value"</code>: {
+        <code class="returns">"atomic_number"</code>: <code class="val">1</code>,
+        <code class="returns">"element_name"</code>: <code class="val">"Hydrogen"</code>,        
+        <code class="returns">"images"</code>: [
+            {
+                <code class="returns">"type"</code>: <code class="val">"usage"</code>,
+                <code class="returns">"caption"</code>: <code class="val">"Hydrogen is used for lorem ipsum dolor sit amet consectetur adipiscing"</code>,
+                <code class="returns">"url"</code>: <code class="val">"https://quantarks.dev/images/QuzWyxls9sda.jpg"</code>
+            },
+            {
+                <code class="returns">"type"</code>: <code class="val">"danger"</code>,
+                <code class="returns">"caption"</code>: <code class="val">"Hydrogen is toxic under certain circumstances like lorem ipsum dolor sit amet."</code>,
+                <code class="returns">"url"</code>: <code class="val">"https://quantarks.dev/images/QOKJfew9swqa.jpg"</code>
+            },
+        ]
+    }
+]</pre>
+            </p>
+
+            <p>
+                    If an error has occurred, the API returns a JSON string that follows this format:
+                    <pre class="code">
+    [
+        <code class="returns">"code"</code>: <code class="val">"ERR_CREDENTIAL_NONE"</code>,
+        <code class="returns">"message"</code>: <code class="val">"The `token` parameter has not been provided."</code>,
+        <code class="returns">"value"</code>: <code class="val">null</code>
+    ]</pre>
+                </p>
+        </section>
+    </main>
+</body>
+
+</html>
