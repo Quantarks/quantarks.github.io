@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
     <link rel="stylesheet" href="../src/index.css">
+    <script src="../src/index.js"></script>
 </head>
 
 <body>
@@ -20,8 +21,12 @@
         </ul>
         <ul>
             <li><a href="../index.html">Home</a></li>
-            <li><a href="#!">Docs</a></li>
+            <li><a href="#!" onclick="document.querySelector('html').classList.toggle('dark')">Docs</a></li>
             <li><a href="#!">About</a></li>
+            <li><a class="dark-toggle" href="#!" onclick="toggleDarkTheme()">
+                <svg class="light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40"><path d="M10 0C6.35 0 2.94.99 0 2.7 5.97 6.16 10 12.6 10 20S5.97 33.84 0 37.3C2.94 39.01 6.35 40 10 40c11.05 0 20-8.95 20-20S21.05 0 10 0z"/></svg>
+                <svg class="dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.26000213623047 45.26000213623047"><path d="M38.63 29.26l6.63-6.63L38.63 16V6.63h-9.37L22.63 0 16 6.63H6.63V16L0 22.63l6.63 6.63v9.37H16l6.63 6.63 6.63-6.63h9.37v-9.37zm-16 5.37c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12z"/></svg>
+            </a></li>
         </ul>
     </nav>
     <div class="padding-fix"></div>
@@ -192,7 +197,7 @@
                     <p>Gets the uses of this element.</p>
                     <p>
                         <b class="returns">RETURNS:</b> a
-                        <a href="https://bit.ly/2MrtIez" target="_blank"><code><span class="class">List</span>&lt;<span class="class">String</span>&gt;</code></a> object that contains this element's uses.</p>
+                        <a  href="https://bit.ly/2MrtIez" target="_blank"><code><span class="class">List</span>&lt;<span class="class">String</span>&gt;</code></a> object that contains this element's uses.</p>
                 </article>
             </li>
             <li class="method-item">
@@ -221,7 +226,7 @@
                         <code><span class="class">String</span></code> object that contains this element's year of discovery.</p>
                     <aside class="info aside-box">
                         <header>Info</header>
-                        <p>Instead of making it a <a href="https://bit.ly/2t3ih44"><code><span class="class">Date</span></code></a>, this method returns a <code><span class="class">String</span> because the <code>elements.json</code></code> file contains things like <code>"unknown"</code>, <code>"18th century"</code>, and years.</p>
+                        <p>Instead of making it a <a href="https://bit.ly/2t3ih44" target="_blank"><code><span class="class">Date</span></code></a>, this method returns a <code><span class="class">String</span> because the <code>elements.json</code></code> file contains things like <code>"unknown"</code>, <code>"18th century"</code>, and years.</p>
                     </aside>
                 </article>
             </li>
