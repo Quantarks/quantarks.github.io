@@ -32,7 +32,7 @@
     <div class="padding-fix"></div>
 
     <header class="banner">
-        <small class="site-title">Quantarks™</small>
+        <small class="site-title">Quantarks&trade;</small>
         <h1>
             Class Spec:
             <code class="spec-subject">ChemicalElement</code> class.
@@ -74,6 +74,14 @@
                     <p>These constructors can only be accessed by members of the same class, that is, the
                         <code>findBy*()</code> functions. See
                         <a href="#static-methods">static methods</a> for details.</p>
+                    <p>The constructors don't do anything, actually. The constructor with no parameters can be ignored as it is automatically created. On the other hand, the constructor with parameter only calls <code>setAtomicNumber()</code> and passes the parameter.</p>
+                    <p>Thus, the constructor can be seen like this:
+<pre class="code">
+<code class="kw">private</code> <code class="class">ChemicalElement</code>(<code class="kw">int</code> <code class="var">atomicNumber</code>) {
+    <code class="kw">this</code>.setAtomicNumber(<code class="var">atomicNumber</code>);
+}
+</pre>
+                    </p>
                     <aside class="warning aside-box">
                         <header>Warning</header>
                         <p>Calling the constructor with no parameters must be followed by a call to
