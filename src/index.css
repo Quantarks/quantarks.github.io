@@ -21,6 +21,8 @@ html {
     --text-oncolor: rgba(255, 255, 255, 0.75);
     --warning-light: #FFF2EA;
     --warning-dark: #fca;
+    --text-header: #f5b101;
+    --text-header-accent: #32d3f4;
 }
 
 html.dark {
@@ -88,8 +90,14 @@ pre.code {
     background: linear-gradient(to right, #001825, #011C2C);
     padding: 20px;
     padding-top: 100px;
-    color: rgba(255, 255, 255, 0.95) !important;
+    color: var(--text-header) !important;
+    font-weight: 300;
     margin-bottom: 50px;
+}
+
+.banner h1 {
+    font-weight: 300;
+    color: var(--text-header-accent);
 }
 
 a {
@@ -125,8 +133,8 @@ a[target=_blank]::before {
     content: '';
     position: absolute;
     right: 0;
-    border-top: 3px solid var(--link-color-opacified);
-    border-right: 3px solid var(--link-color-opacified);
+    border-top: 3px solid var(--link-color);
+    border-right: 3px solid var(--link-color);
     height: .5rem;
     width: .5rem;
 }
@@ -139,7 +147,7 @@ a[target=_blank]::after {
     width: 3px;
     height: 1rem;
     margin-left: 5px;
-    background: var(--link-color-opacified);
+    background: var(--link-color);
     border-radius: 3px;
     transform: rotate(45deg);
 }
@@ -171,10 +179,12 @@ p {
 
 .site-title {
     font-size: 1.2rem;
+    color: var(--text-header-accent);
+    text-shadow: 0 0 5px var(--text-header-accent);
 }
 
 .spec-subject {
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--text-header);
     font-weight: bold;
 }
 
@@ -425,7 +435,15 @@ html.dark .breadcrumb:last-child {
 
 .nav a:hover {
     background-size: 100% 0.15rem;
+    color: var(--text-header-accent) !important;
+    text-shadow: 0 0 3px var(--text-header-accent);
     transition: background-size 300ms;
+}
+
+.nav a:hover svg {
+    filter: drop-shadow(0 2px 3px var(--text-header-accent));
+    fill: var(--text-header-accent);
+    stroke: var(--text-header-accent);
 }
 
 .padding-fix {
