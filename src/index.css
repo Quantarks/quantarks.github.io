@@ -1,11 +1,10 @@
-
 *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 300ms;
+    transition: background-color 300ms, border 300ms;
 }
 
 html {
@@ -15,7 +14,7 @@ html {
     --bg-accent-darker: #eee;
     --bg-accent-darkest: #ccc;
     --link-color: #ff2e60;
-    --link-color-opacified: #FFcfda;
+    --link-color-opacified: #FF5981;
     --text-darker: #333;
     --text-standard: #555;
     --text-oncolor: rgba(255, 255, 255, 0.75);
@@ -66,6 +65,14 @@ body {
     padding-left: 5em;
 }
 
+code.http {
+    background-color: var(--bg-accent);
+    border: 1px solid var(--bg-accent-darkest);
+    padding: 9px 5px 5px;
+    border-radius: 5px;
+    display: inline;
+}
+
 code,
 pre {
     font-family: 'Overpass Mono', 'SF Mono', monospace;
@@ -76,18 +83,19 @@ pre.code {
     padding: 10px;
     margin: 5px auto;
     width: 90%;
-    border: 1px solid #ddd;
-    background-color: #eee;
+    border: 1px solid var(--bg-accent-darkest);
+    background-color: var(--bg-accent);
     overflow: auto;
+    border-radius: 5px;
 }
 
 .banner {
     width: 100%;
     background: #ff416c;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #001825, #011C2C);
+    background: -webkit-linear-gradient(to right, #001825, #005a5a);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #001825, #011C2C);
+    background: linear-gradient(to right, #001825, #005a5a);
     padding: 20px;
     padding-top: 100px;
     color: var(--text-header) !important;
@@ -104,23 +112,16 @@ a {
     color: var(--link-color);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     text-decoration: none;
-    background-image: linear-gradient(to bottom,var(--link-color), var(--link-color));
-    background-size: 100% 10%;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    transition: background-size 300ms;
+  
     padding: 0 3px;
     cursor: pointer;
+    position: relative;
 }
 
 a[target=_blank] {
-    color: var(--link-color-opacified);
-    /* background: #000428; */
-    /* fallback for old browsers */
+    color: var(--link-color);
     background-image: -webkit-linear-gradient(to bottom,var(--link-color), var(--link-color));
-    /* Chrome 10-25, Safari 5.1-6 */
     background-image: linear-gradient(to bottom,var(--link-color), var(--link-color));
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: 100% 10%;
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -133,10 +134,13 @@ a[target=_blank]::before {
     content: '';
     position: absolute;
     right: 0;
+    left: unset;
+    border: none;
     border-top: 3px solid var(--link-color);
     border-right: 3px solid var(--link-color);
     height: .5rem;
     width: .5rem;
+    opacity: 1;
 }
 
 a[target=_blank]::after {
@@ -148,8 +152,10 @@ a[target=_blank]::after {
     height: 1rem;
     margin-left: 5px;
     background: var(--link-color);
+    border: none;
     border-radius: 3px;
     transform: rotate(45deg);
+    opacity: 1;
 }
 
 a[target=_blank]:hover,
@@ -158,17 +164,63 @@ a[target=_blank]:hover * {
 }
 
 a[target=_blank]:hover::before {
-    border-color: var(--text-standard);
-}
-
-a[target=_blank]:hover::after {
+    right: 0;
+    left: unset;
     border-top: 3px solid var(--text-standard);
     border-right: 3px solid var(--text-standard);
 }
 
+a[target=_blank]:hover::after {
+    top: -2px;
+    right: 5px;
+    width: 3px;
+    height: 1rem;
+    margin-left: 5px;
+    border-top: 3px solid var(--text-standard);
+    border-right: 3px solid var(--text-standard);
+}
+
+a::before,
+a::after {
+    content: '';
+    border-top: 2px solid var(--text-header-accent);
+    border-bottom: 2px solid var(--text-header-accent);
+    width: 10px;
+    height: 1.5em;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+}
+
+a::before {
+    border-left: 2px solid var(--text-header-accent);
+    left: 0.5em;
+    transition: left 300ms, opacity 300ms;
+}
+
+a::after {
+    border-right: 2px solid var(--text-header-accent);
+    right: 0.5em;
+    transition: right 300ms, opacity 300ms;
+}
+
+a:focus::before,
+a:hover::before {
+    left: -0.5em;
+    opacity: 1;
+    transition: left 300ms, opacity 300ms;
+}
+
+a:focus::after,
+a:hover::after {
+    right: -0.5em;
+    opacity: 1;
+    transition: right 300ms, opacity 300ms;
+}
+
 a:hover,
 a:hover code {
-    color: rgba(255, 255, 255, 0.95) !important;
+    color: var(--text-header-accent) !important;
     background-size: 100% 100%;
     transition: background-size 300ms;
 }
@@ -278,6 +330,19 @@ html.dark .method {
     background-color: rgba(51, 170, 255, 0.15);
 }
 
+.info.external,
+.warning.external {
+    border: 1px solid #3af;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.warning.external {
+    border: 1px solid var(--warning-dark);
+}
+
 .info>header {
     background-color: #3af;
     color: #fff;
@@ -296,11 +361,11 @@ html.dark .method {
 }
 
 .returns {
-    color: #ff416c;
+    color: hsl(346, 100%, 73%);
 }
 
 .val {
-    color: hsl(0, 90%, 58%);
+    color: hsl(10, 50%, 60%);
 }
 
 .params {
@@ -335,6 +400,12 @@ html.dark .method {
     border-radius: 5px;
 }
 
+.breadcrumb a,
+.breadcrumb a::before, 
+.breadcrumb a::after {
+    all: unset;
+}
+
 .breadcrumb {
     /* background-color: #ffcfda; */
     color: var(--text-oncolor);
@@ -356,13 +427,9 @@ html.dark .method {
 
 .breadcrumb:last-child {
     border: none;
-    background-image: linear-gradient(to right, var(--link-color), hsla(346, 100%, 100%, 0));
+    background-image: linear-gradient(to right, var(--link-color), var(--link-color-opacified));
     padding-right: 10px;
     font-weight: bold;
-}
-
-html.dark .breadcrumb:last-child {
-    background-image: linear-gradient(to right, var(--link-color), hsla(345, 87%, 100%, 0.2));
 }
 
 .breadcrumb::after {
@@ -402,9 +469,9 @@ html.dark .breadcrumb:last-child {
     z-index: 9999;
     background: #ff416c;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right,#001825, #011C2C);
+    background: -webkit-linear-gradient(to right,#001825, #005a5a);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #001825, #011C2C);
+    background: linear-gradient(to right, #001825, #005a5a);
     color: #fff;
 }
 
@@ -426,11 +493,16 @@ html.dark .breadcrumb:last-child {
     display: flex;
     align-items: center;
     padding: 0 10px;
-    background-image: linear-gradient(var(--link-color), var(--link-color));
+    background-image: linear-gradient(var(--text-header-accent), var(--text-header-accent));
     background-repeat: no-repeat;
     background-size: 0% .15rem;
     background-position: bottom center;
     transition: background-size 300ms;
+}
+
+.nav a::before,
+.nav a::after {
+    content: none;
 }
 
 .nav a:hover {
