@@ -104,7 +104,7 @@
                             <p>A string that indicates the type of images to be returned by the API, that is, if it is the dangers of the element, the uses, or both.</p>
                             <p>
                                 <strong>Possible values:</strong>
-                                <pre class="code">[ <code class="var">"all"</code>, <code class="var">"dangers"</code>, <code class="var">"uses"</code> ]</pre>
+                                <pre class="code">[ <code class="var">"all"</code>, <code class="var">"danger"</code>, <code class="var">"use"</code> ]</pre>
                             </p>
                             <aside class="aside-box warning">
                                 <header>Warning</header>
@@ -129,35 +129,38 @@
                 The API returns a JSON string that follows this format:
                 <pre class="code">
 [
-    <code class="returns">"code"</code>: <code class="val">"NO_ERROR"</code>,
-    <code class="returns">"message"</code>: <code class="val">"Success"</code>,
-    <code class="returns">"value"</code>: {
-        <code class="returns">"atomic_number"</code>: <code class="val">1</code>,
-        <code class="returns">"element_name"</code>: <code class="val">"Hydrogen"</code>,        
-        <code class="returns">"images"</code>: [
-            {
-                <code class="returns">"type"</code>: <code class="val">"usage"</code>,
-                <code class="returns">"caption"</code>: <code class="val">"Hydrogen is used for lorem ipsum dolor sit amet consectetur adipiscing"</code>,
-                <code class="returns">"url"</code>: <code class="val">"https://quantarks.dev/images/QuzWyxls9sda.jpg"</code>
-            },
-            {
-                <code class="returns">"type"</code>: <code class="val">"danger"</code>,
-                <code class="returns">"caption"</code>: <code class="val">"Hydrogen is toxic under certain circumstances like lorem ipsum dolor sit amet."</code>,
-                <code class="returns">"url"</code>: <code class="val">"https://quantarks.dev/images/QOKJfew9swqa.jpg"</code>
-            },
-        ]
-    }
+    <code class="returns">"errors"</code>: [],
+    <code class="returns">"value"</code>: [
+        {
+            <code class="returns">"image"</code>: <code class="val">"https://quantarks.dev/assets/30312d687964726f67656e.jpg"</code>,
+            <code class="returns">"type"</code>: <code class="val">"dangers"</code>
+            <code class="returns">"caption"</code>: <code class="val">"Hydrogen is a flammable gas, and can be found in the core of the stars reacting in nuclear fusion."</code>
+        },
+        {
+            <code class="returns">"image"</code>: <code class="val">"https://quantarks.dev/assets/30312d687964726f67656e.jpg"</code>,
+            <code class="returns">"type"</code>: <code class="val">"dangers"</code>
+            <code class="returns">"caption"</code>: <code class="val">"Hydrogen is a flammable gas, and can be found in the core of the stars reacting in nuclear fusion."</code>
+        }
+    ]
 ]</pre>
             </p>
 
             <p>
                     If an error has occurred, the API returns a JSON string that follows this format:
                     <pre class="code">
-    [
-        <code class="returns">"code"</code>: <code class="val">"ERR_CREDENTIAL_NONE"</code>,
-        <code class="returns">"message"</code>: <code class="val">"The `token` parameter has not been provided."</code>,
-        <code class="returns">"value"</code>: <code class="val">null</code>
-    ]</pre>
+[
+    <code class="returns">"errors"</code>: [
+        {
+            <code class="returns">"code"</code>: <code class="val">"ERR_PARAM_INVALID"</code>,
+            <code class="returns">"message"</code>: <code class="val">"The `atomic_number` provided (value: 119) was invalid."</code>
+        },
+        {
+            <code class="returns">"code"</code>: <code class="val">"ERR_PARAM_INVALID"</code>,
+            <code class="returns">"message"</code>: <code class="val">"The `classification` provided (value: dangerous) was invalid."</code>
+        }
+    ],
+    <code class="returns">"value"</code>: []
+]</pre>
                 </p>
         </section>
     </main>
