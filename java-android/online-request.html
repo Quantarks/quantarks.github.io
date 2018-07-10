@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <title>OnlineRequest - Quantarks&trade; Android Classes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rokkitt"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="../src/index.css">
+    <script src="../src/index.js"></script>
+</head>
+
+<body>
+    <nav class="nav">
+        <ul>
+            <li>
+                <a href="../index.html">Quantarks</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+            <li>
+                <a href="#!"
+                   onclick="document.querySelector('html').classList.toggle('dark')">Docs</a>
+            </li>
+            <li>
+                <a href="#!">About</a>
+            </li>
+            <li>
+                <a class="dark-toggle"
+                   href="#!"
+                   onclick="toggleDarkTheme()">
+                    <svg class="light"
+                         xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 30 40">
+                        <path d="M10 0C6.35 0 2.94.99 0 2.7 5.97 6.16 10 12.6 10 20S5.97 33.84 0 37.3C2.94 39.01 6.35 40 10 40c11.05 0 20-8.95 20-20S21.05 0 10 0z"
+                        />
+                    </svg>
+                    <svg class="dark"
+                         xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 45.26000213623047 45.26000213623047">
+                        <path d="M38.63 29.26l6.63-6.63L38.63 16V6.63h-9.37L22.63 0 16 6.63H6.63V16L0 22.63l6.63 6.63v9.37H16l6.63 6.63 6.63-6.63h9.37v-9.37zm-16 5.37c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12z"
+                        />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="padding-fix"></div>
+
+    <header class="banner">
+        <small class="site-title">Quantarks&trade;</small>
+        <h1>
+            Class Spec:
+            <code class="spec-subject">OnlineRequest</code> class.
+        </h1>
+    </header>
+    <nav class="breadcrumbs">
+        <ul>
+            <li class="breadcrumb">
+                <a href="../index.html">Quantarks&trade; API Docs</a>
+            </li>
+            <li class="breadcrumb">
+                <a href="./index.html">Android Classes</a>
+            </li>
+            <li class="breadcrumb">
+                <a href="./online-request.html">OnlineRequest</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="spec-section"
+             id="class-description">
+        <header>
+            <h2>
+                Description
+            </h2>
+        </header>
+        <p>The
+            <code>OnlineRequest</code> class handles all requests to the Online API, both synchronous and asynchronous.</p>
+    </section>
+
+    <section class="spec-section"
+             id="constructors">
+        <header>
+            <h2>Constructors</h2>
+        </header>
+        <ul class="method-list">
+            <li class="method-item">
+                <article class="method"
+                         id="ChemicalElement">
+                    <header>
+                        <h3>
+                            <code><span class="kw">private</span> OnlineRequest()</code>
+                        </h3>
+                    </header>
+                    <p>Initializes a new
+                        <code class="class">OnlineRequest</code> object.</p>
+                </article>
+            </li>
+        </ul>
+    </section>
+    <section class="spec-section">
+        <header>
+            <h2>Private Methods</h2>
+        </header>
+        <p>This class has no private methods.</p>
+        <aside class="aside-box info external">
+            <header>Note</header>
+            <p>This class can always be added as many private methods as necessary.</p>
+        </aside>
+    </section>
+
+    <section class="spec-section">
+        <header>
+            <h2>Public Methods</h2>
+        </header>
+        <ul class="method-list">
+            <li class="method-item">
+                <article class="method"
+                         id="get">
+                    <header>
+                        <h3>
+                            <code><span class="kw">public</span> get(<code class="class">RequestParameters</code> <code class="var">rp</code>)</code>
+                        </h3>
+                    </header>
+                    <p>Sends a <code class="http">GET</code> request to the online API with the request parameters.</p>
+                    <p>
+                        <b class="returns">RETURNS:</b> a
+                        <code><span class="class">RequestResult</span></code> object that contains the response of the online API.</p>
+
+                </article>
+            </li>
+        </ul>
+    </section>
+
+    <section class="spec-section">
+        <header>
+            <h2 id="static-methods">Static Methods</h2>
+        </header>
+        <ul class="method-list">
+            <li class="method-item">
+                <article class="method"
+                         id="findByNumber">
+                    <header>
+                        <h3>
+                            <code><span class="kw">private</span> findByNumber(<code><span class="kw">int</span> <span class="var">atomicNumber</span></code>)</code>
+                        </h3>
+                    </header>
+                    <p>Finds a chemical element by its atomic number</p>
+                    <p>
+                        <b class="returns">RETURNS:</b> a
+                        <code>ChemicalElement</code> object representing the element. If nothing is found, returns
+                        <code>null</code>.</p>
+                </article>
+            </li>
+            <li class="method-item">
+                <article class="method"
+                         id="findByName">
+                    <header>
+                        <h3>
+                            <code><span class="kw">private</span> findByName(<code><span class="class">String</span> <span class="var">name</span></code>)</code>
+                        </h3>
+                    </header>
+                    <p>Finds a chemical element by its name</p>
+                    <p>
+                        <b class="returns">RETURNS:</b> a
+                        <code>ChemicalElement</code> object representing the element. If nothing is found, returns
+                        <code>null</code>.</p>
+                </article>
+            </li>
+            <li class="method-item">
+                <article class="method"
+                         id="findBySymbol">
+                    <header>
+                        <h3>
+                            <code><span class="kw">private</span> findBySymbol(<code><span class="class">String</span> <span class="var">symbol</span></code>)</code>
+                        </h3>
+                    </header>
+                    <p>Finds a chemical element by its atomic symbol</p>
+                    <p>
+                        <b class="params">PARAMETERS:</b>
+                        <dl class="param-list">
+                            <dt>
+                                <code>symbol</code>
+                            </dt>
+                            <dd>A
+                                <code><span class="class">String</span></code> that represents the atomic symbol of the element to find. For example, the element
+                                <a href="https://rsc.li/2Jz1il7"
+                                   target="_blank">Hydrogen</a> has the symbol
+                                <code><span class="kw">"H"</span></code>, and
+                                <a href="https://rsc.li/1KTaGZy"
+                                   target="_blank">Argon</a> has the atomic symbol
+                                <code><span class="kw">"Ar"</span></code>
+                            </dd>
+                        </dl>
+                    </p>
+                    <p>
+                        <b class="returns">RETURNS:</b> a
+                        <code>ChemicalElement</code> object representing the element. If nothing is found, returns
+                        <code>null</code>.</p>
+                </article>
+            </li>
+            <li class="method-item">
+                <article class="method"
+                         id="findByElectronConf">
+                    <header>
+                        <h3>
+                            <code><span class="kw">private</span> findByElectronConf(<code><span class="kw">int</span>[] <span class="var">electronConfiguration</span></code>)</code>
+                        </h3>
+                    </header>
+                    <p>Finds a chemical element by its electron configuration</p>
+                    <p>
+                        <b class="params">PARAMETERS:</b>
+                        <dl class="param-list">
+                            <dt>
+                                <code>electronConf</code>
+                            </dt>
+                            <dd>
+                                <p>
+                                    An array of integers representing the electron configuration of the element to find. For example,
+                                    <a href="http://www.rsc.org/periodic-table/element/18/argon"
+                                       target="_blank">Argon</a> has 3 electron shells, having 2 electrons on the first one, and 8 electrons
+                                    each on the second and third one. They can be represented as an array of integers:
+                                    <code>[<span class="kw">2</span>, <span class="kw">8</span>, <span class="kw">8</span>]</code>.
+                                </p>
+                                <p>
+                                    For more information on the electron configurations in this form, see this
+                                    <a href="https://bit.ly/2JMT607"
+                                       target="_blank">graphic</a> (where the electron configurations are indicated in the top right corner
+                                    of every element).
+                                </p>
+                            </dd>
+                        </dl>
+                    </p>
+                    <p>
+                        <b class="returns">RETURNS:</b> a
+                        <code>ChemicalElement</code> object representing the element. If nothing is found, returns
+                        <code>null</code>.</p>
+                </article>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>
