@@ -9,6 +9,7 @@
 
 html {
     font-size: 16px;
+    line-height: 1.75;
     --bg: #fff;
     --bg-accent: #fafafa;
     --bg-accent-darker: #eee;
@@ -42,7 +43,7 @@ html.dark {
 body {
     width: 100%;
     height: 100vh;
-    font-family: 'Poppins';
+    font-family: 'Montserrat', 'Roboto', sans-serif;
     color: var(--text-standard);
     background-color: var(--bg);
     scroll-behavior: smooth;
@@ -75,8 +76,8 @@ code.http {
 
 code,
 pre {
-    font-family: 'Overpass Mono', 'SF Mono', monospace;
-    color: var(--text-darker);
+    font-family: 'Overpass Mono', 'SF Mono', 'Inconsolata', monospace;
+    color: inherit;
 }
 
 pre.code {
@@ -116,6 +117,10 @@ a {
     padding: 0 3px;
     cursor: pointer;
     position: relative;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 a[target=_blank] {
@@ -179,7 +184,7 @@ a[target=_blank]:hover::after {
     border-top: 3px solid var(--text-standard);
     border-right: 3px solid var(--text-standard);
 }
-
+/* 
 a::before,
 a::after {
     content: '';
@@ -223,7 +228,7 @@ a:hover code {
     color: var(--text-header-accent) !important;
     background-size: 100% 100%;
     transition: background-size 300ms;
-}
+} */
 
 p {
     padding-bottom: 10px;
@@ -370,6 +375,7 @@ html.dark .method {
 
 .params {
     color: #ff4b2b;
+    text-transform: uppercase;
 }
 
 .param-list {
@@ -608,6 +614,45 @@ a.dark-toggle svg {
     display: none;
     fill: var(--text-oncolor);
     stroke: var(--text-oncolor);
+}
+
+ul.list-container {
+    padding: 0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.list-container li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.list-container li:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 80%;
+    background-color: var(--bg-accent-darker);
+    margin: auto;
+}
+
+.list-container li a {
+    all: unset;
+    display: block;
+    padding: 20px 10px;
+    cursor: pointer;
+    color: var(--text-standard);
+}
+
+.list-container a:hover {
+    background-color: var(--bg-accent-darker);
+}
+
+.list-container .item-header {
+    color: var(--link-color);
+    display: block;
+    font-size: 1.5rem;
 }
 
 html.dark a.dark-toggle svg.dark,
