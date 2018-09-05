@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QAudio - Quantarks&trade; Android Classes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../src/index.css">
+    <script src="../src/index.js"></script>
+</head>
+
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="../index.html">Quantarks</a></li>
+        </ul>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#!" onclick="document.querySelector('html').classList.toggle('dark')">Docs</a></li>
+            <li><a href="#!">About</a></li>
+            <li><a class="dark-toggle" href="#!" onclick="toggleDarkTheme()">
+                    <svg class="light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40">
+                        <path d="M10 0C6.35 0 2.94.99 0 2.7 5.97 6.16 10 12.6 10 20S5.97 33.84 0 37.3C2.94 39.01 6.35 40 10 40c11.05 0 20-8.95 20-20S21.05 0 10 0z"
+                        /></svg>
+                    <svg class="dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.26000213623047 45.26000213623047">
+                        <path
+                            d="M38.63 29.26l6.63-6.63L38.63 16V6.63h-9.37L22.63 0 16 6.63H6.63V16L0 22.63l6.63 6.63v9.37H16l6.63 6.63 6.63-6.63h9.37v-9.37zm-16 5.37c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12z"
+                        /></svg>
+                </a></li>
+        </ul>
+    </nav>
+    <div class="padding-fix"></div>
+
+    <header class="banner">
+        <small class="site-title">Quantarks&trade;</small>
+        <h1>
+            Class Spec:
+            <code class="spec-subject">QAudio</code> class.
+        </h1>
+    </header>
+    <nav class="breadcrumbs">
+        <ul>
+            <li class="breadcrumb"><a href="../index.html">Quantarks&trade; API Docs</a></li>
+            <li class="breadcrumb"><a href="./index.html">C# Classes</a></li>
+            <li class="breadcrumb"><a href="./qaudio.html">QAudio</a></li>
+        </ul>
+    </nav>
+
+    <section class="spec-section" id="class-description">
+        <header>
+            <h2>
+                Description
+            </h2>
+        </header>
+        <p>The
+            <code class="http">QAudio</code> is the wrapper class that represents audio content via the <code class="http">*.qmp3</code>            file
+            format.</p>
+        <aside class="info external aside-box">
+            <header>Note</header>
+            <p>This class handles File I/O, and it unzips the <a href="./qmp3.html"><code>*.qmp3</code></a> file. For handling
+                ZIP files, take a look at the following libraries/classes:</p>
+            <p>
+                <ul>
+                    <li><a href="https://bit.ly/2NIMv5q">GZipStream (a.k.a <code class="http">Unity.IO.Compression</code>)</a></li>
+                    <li><a href="https://github.com/icsharpcode/SharpZipLib">SharpZipLib</a></li>
+                </ul>
+            </p>
+        </aside>
+    </section>
+
+    <section class="spec-section" id="constructors">
+        <header>
+            <h2>Constructors</h2>
+        </header>
+        <ul class="method-list">
+            <li class="method-item">
+                <article class="method" id="QAudio">
+                    <header>
+                        <h3>
+                            <code><span class="kw">private</span> QAudio()</code>
+                        </h3>
+                    </header>
+                    <p>
+                        Creates a new <code class="http">QAudio</code> class.
+                    </p>
+                    <aside class="info aside-box">
+                        <header>Note</header>
+                        <p>This is a private constructor, and as such cannot be accessed from outside the class. The only
+                            way to create a
+                            <class class="http class">QAudio</class> object is to make a call to <a href="#extract"><code class="http"><span class="class">QAudio</span>.extract()</code></a>.
+                    </aside>
+                </article>
+            </li>
+        </ul>
+    </section>
+    <section class="spec-section">
+        <header>
+            <h2>Methods</h2>
+        </header>
+        <ul class="method-list">
+            <li class="method-item">
+                <article class="method" id="extract">
+                    <header>
+                        <h3>
+                            <code><span class="kw">public static</span> <span class="class">QAudio</span> extract( <span class="kw">string</span> <span class="var">key</span> )</code>
+                        </h3>
+                    </header>
+                    <p>Extracts the audio and transcript from a <code class="http">.qmp3</code> file and creates an object
+                        for it.</p>
+                    <p>
+                        <b class="params">Parameters</b>
+                    </p>
+                    <dl class="param-list">
+                        <dt><code>key</code></dt>
+                        <dd>
+                            <p>
+                                The lookup key for the <code class="class">QAudio</code> file. This will be the filename
+                                of the <code class="http">.mp3</code> and <code class="http">.srt</code> files.
+                            </p>
+                        </dd>
+                    </dl>
+                </article>
+            </li>
+            <li class="method-item">
+
+                <article class="method" id="extract">
+                    <header>
+                        <h3>
+                            <code><span class="kw">public static</span> <span class="class">QAudio</span> extract( <span class="class">File</span> <span class="var">file</span> )</code>
+                        </h3>
+                    </header>
+                    <p>Extracts the audio and transcript from a <code class="http">.qmp3</code> file and creates an object
+                        for it.</p>
+                    <p>
+                        <b class="params">Parameters</b>
+                    </p>
+                    <dl class="param-list">
+                        <dt><code>file</code></dt>
+                        <dd>
+                            <p>
+                                The <code class="class">File</code> that represents the <code class="http">*.qmp3</code> file.
+                            </p>
+                        </dd>
+                    </dl>
+                </article>
+            </li>
+        </ul>
+    </section>
+
+</body>
+
+</html>
