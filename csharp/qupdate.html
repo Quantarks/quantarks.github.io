@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Specifications - Quantarks&trade;</title>
+    <link rel="stylesheet" href="../src/index.css">
+
+    <script src="../src/index.js"></script>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html">Quantarks</a></li>
+        </ul>
+    </nav>
+    <main class="styled">
+        <h1 class="main-header">QUpdate <small>public abstract class</small></h1>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./index.html">C# Specifications</a></li>
+                <li><a href="#!">QUpdate</a></li>
+            </ul>
+        </nav>
+        <div class="content-grid">
+            <aside>
+                <h2>Contents</h2>
+                <ul>
+                    <li>
+                        Properties
+                        <ul>
+                            <li><a href="#update_hash">UpdateHash</a></li>
+                            <li><a href="#update_timestamp">UpdateTimestamp</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Methods
+                        <ul>
+                            <li><a href="#is_later">IsLater()</a></li>
+                            <li><a href="#apply_changes">ApplyChanges()</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <article class="article-proper">
+                <section>
+                    <p><code>QUpdate</code> is the class that stores the metadata of updates and, when they are applicable,
+                        applies all available updates. It should be noted, however, that this updates <em>only</em> the assets,
+                        and not the application itself (because that's the job of the app store). For more details on how
+                        this happens, take a look at <a href="./guides/update-sequence">How Updates <em>Should</em> Work
+                            in the App</a>.</p>
+                </section>
+                <section>
+                    <h2>Properties</h2>
+                    <dl class="method-descriptors">
+                        <dt id="update_hash">UpdateHash</dt>
+                        <dd>
+                            <pre>[<span class="fn">JsonProperty</span>(<span class="val">"update_hash"</span>)]
+<span class="kw">public string</span> <span class="var">UpdateHash</span>;</pre>
+                            <p>The MD5-SHA hash that comes with the update. This comes from the <code>updates.json</code>                                that
+                                the server returns when the <code>Q<wbr>Update<wbr>Manager<wbr>.Fetch<wbr>Update<wbr>Metadata()</code>                                is
+                                invoked.
+                            </p>
+                        </dd>
+
+                        <dt id="update_timestamp">UpdateTimestamp</dt>
+                        <dd>
+                            <pre>[<span class="fn">JsonProperty</span>(<span class="val">"update_timestamp"</span>)]
+<span class="kw">public long</span> <span class="var">UpdateTimestamp</span>;</pre>
+                            <p>The UNIX timestamp that represents the date and time this update was made.</p>
+                        </dd>
+                    </dl>
+                </section>
+                <section>
+                    <h2>Methods</h2>
+                    <dl class="method-descriptors">
+                        <dt id="is_later">IsLater()</dt>
+                        <dd>
+                            <pre><span class="kw">public abstract bool</span> IsLater();</pre>
+                            <p>Checks if this update's timestamp is greater than the timestamp of the currently applied update.</p>
+                            <p><strong>NOTE:</strong> This is not actually implemented in this class. This should be implemented
+                                in classes that inherit <code>QUpdate</code> because each asset type (audio, image, video,
+                                3D model) has different processes of updating, and this class cannot handle all of them.
+                                Each asset type has its own special <code>QUpdate</code> class tailored just for it.</p>
+                            <p><strong>RETURNS:</strong> A boolean. <code>true</code> if this update is newer than the currently
+                                used, and <code>false</code> if otherwise.</p>
+                        </dd>
+
+                        <dt id="apply_changes">ApplyChanges()</dt>
+                        <dd>
+                            <pre><span class="kw">public abstract void</span> ApplyChanges() <span class="kw">throws</span> <span class="class">Exception</span>;</pre>
+                            <p>Applies this update. It should not check for anything. It just applies the changes; the developer
+                                should use caution and check everything that needs to be checked before invoking this method.
+                                This cannot be undone (as of yet).</p>
+                            <p><strong>NOTE:</strong> This is not actually implemented in this class. Every asset type has
+                                their own cache folders, and their respective <code>updates.json</code> are different. Every
+                                asset type has their own update object. For more details on how
+                                this happens, take a look at <a href="./guides/update-sequence">How Updates <em>Should</em> Work
+                                    in the App</a>.</p>
+                            <p><strong>THROWS:</strong> An <code>Exception</code>, which can be anything appropriate to notify that the changes had not been applied for some reason, which will be detailed in the exception object.</p>
+                        </dd>
+                    </dl>
+                </section>
+                <section>
+                    <h2>Direct Known Descendants</h2>
+                    <p>
+                        These are the classes that are known to inherit from this class:
+                        <ul>
+                            <li><a href="./qaudioupdate.html">QAudioUpdate</a></li>
+                        </ul>
+                    </p>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>
+            Quantarks&trade; Team &copy; 2018-2019
+        </p>
+        <nav>
+            <ul>
+                <li><a href="https://trello.com/b/nGIY2gxU/quantarks">Official Trello Board</a></li>
+                <li><a href="https://github.com/quantarks">Official GitHub Account</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
