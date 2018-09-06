@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Specifications - Quantarks&trade;</title>
+    <link rel="stylesheet" href="../src/index.css">
+
+    <script src="../src/index.js"></script>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html">Quantarks</a></li>
+        </ul>
+    </nav>
+    <main class="styled">
+        <h1 class="main-header">QAudioUpdate <small>public class</small></h1>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./index.html">C# Specifications</a></li>
+                <li><a href="#!">QAudioUpdate</a></li>
+            </ul>
+        </nav>
+        <div class="content-grid">
+            <aside>
+                <h2>Contents</h2>
+                <ul>
+                    <li>
+                        Properties
+                        <ul>
+                            <li><a href="#update_hash">UpdateHash</a></li>
+                            <li><a href="#update_timestamp">UpdateTimestamp</a></li>
+                            <li><a href="#removed_keys">RemovedKeys</a></li>
+                            <li><a href="#added_keys">AddedKeys</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Methods
+                        <ul>
+                            <li><a href="#is_later">IsLater()</a></li>
+                            <li><a href="#apply_changes">ApplyChanges()</a></li>
+                            <li><a href="#from_json">FromJson()</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <article class="article-proper">
+                <section>
+                    <p><code>QAudioUpdate</code> is the class that stores the metadata of updates to audio and transcript assets. For more details on how
+                        this happens, take a look at <a href="./guides/update-sequence">How Updates <em>Should</em> Work
+                            in the App</a>.</p>
+                </section>
+
+                <section>
+                        <h2>Inheritance Tree</h2>
+                        <ul class="inheritance">
+                                <li>
+                                    <a href="./qupdate.html">QUpdate</a>
+                                    <ul>
+                                        <li><a href="./qaudioupdate.html">QAudioUpdate (This class)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                    </section>
+                <section>
+                    <h2>Properties</h2>
+                    <dl class="method-descriptors">
+                        <dt id="update_hash"><a href="./qupdate.html#update_hash">UpdateHash</a> <small>QUpdate</small></dt>
+                        <dt id="update_timestamp"><a href="./qupdate.html#update_timestamp">UpdateTimestamp</a> <small>QUpdate</small></dt>
+                        
+                        <dt id="removed_keys">RemovedKeys</dt>
+                        <dd>
+                            <pre><span class="kw">public</span> <span class="class">List</span>&lt;<span class="kw">string</span>> <span class="var">RemovedKeys</span> { <span class="kw">get</span>; <span class="kw">private set</span>; }</pre>
+                            <p>Contains the keys that were in the previous update but were removed in this update.</p>
+                        </dd>
+
+                        <dt id="added_keys">AddedKeys</dt>
+                        <dd>
+                            <pre><span class="kw">public</span> <span class="class">List</span>&lt;<span class="kw">string</span>> <span class="var">AddedKeys</span> { <span class="kw">get</span>; <span class="kw">private set</span>; }</pre>
+                            <p>Contains the keys that were not in the previous update but were added in this update.</p>
+                        </dd>
+                    </dl>
+                </section>
+                <section>
+                    <h2>Methods</h2>
+                    <dl class="method-descriptors">
+                        <dt id="is_later">IsLater() <small>QUpdate</small></dt>
+                        <dd>
+                            <pre><span class="kw">public override bool</span> IsLater();</pre>
+                            <p>Checks if this update's timestamp is greater than the timestamp of the currently applied update.</p>
+                            <p><strong>RETURNS:</strong> A boolean. <code>true</code> if this update is newer than the currently
+                                used, and <code>false</code> if otherwise.</p>
+                        </dd>
+
+                        <dt id="apply_changes">ApplyChanges() <small>QUpdate</small></dt>
+                        <dd>
+                            <pre><span class="kw">public override void</span> ApplyChanges() <span class="kw">throws</span> <span class="class">Exception</span>;</pre>
+                            <p>Applies this update. It should not check for anything. It just applies the changes; the developer
+                                should use caution and check everything that needs to be checked before invoking this method.
+                                This cannot be undone (as of yet).</p>
+                            <p><strong>THROWS:</strong> An <code>Exception</code>, which can be anything appropriate to notify that the changes had not been applied for some reason, which will be detailed in the exception object.</p>
+                        </dd>
+
+                        <dt id="from_json">FromJson()</dt>
+                        <dd>
+                            <pre><span class="kw">public override QAudioUpdate</span> FromJson(<span class="kw">string</span> <span class="var">jsonString</span>);</pre>
+                            <p>Parses a string into a JSON object and <i title="To serialize is to assign the properties of the JSON object into another object (in this case, the QAudioUpdate object).">serializes</i> it into a QAudioUpdate object.</p>
+                            <p>
+                                <strong>PARAMETERS:</strong>
+                                <ul>
+                                    <li>
+                                        <code><span class="kw">string</span> <span class="var">jsonString</span></code>
+                                        <p>The string that this method will parse as JSON and serialize into a QAudioUpdate object.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>
+                                <strong>RETURNS:</strong> The QAudioUpdate object resulting from the JSON string.
+                            </p>
+                        </dd>
+                    </dl>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>
+            Quantarks&trade; Team &copy; 2018-2019
+        </p>
+        <nav>
+            <ul>
+                <li><a href="https://trello.com/b/nGIY2gxU/quantarks">Official Trello Board</a></li>
+                <li><a href="https://github.com/quantarks">Official GitHub Account</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
