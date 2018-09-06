@@ -1,0 +1,236 @@
+*,
+*::before,
+*::after {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+    transition: all 300ms;
+}
+
+html {
+    font-size       : 16px;
+    font-family     : "Montserrat", sans-serif;
+    background-color: hsl(180, 40%, 90%);
+
+    /* colors */
+    --background-color: #fafafa;
+
+    /* fonts */
+    --monospace : "Roboto Mono",  monospace;
+    --sans-serif: "Montserrat",   sans-serif;
+    --serif     : var(--sans-serif);
+}
+
+body {
+    background: var(--background-color);
+    margin    : auto;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    min-height: 100vh;
+    position  : relative;
+    padding-bottom: 50px;
+    scroll-behavior: smooth;
+}
+
+/* sane defaults */
+
+:target {
+    background-image: linear-gradient(to right, hsl(60, 90%, 70%), #32d3f400);
+}
+
+[title] {
+    cursor: help;
+    border-bottom: 2px dashed #ccc;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    margin     : 1rem;
+    font-weight: 300;
+}
+
+small {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+code,
+pre {
+    font-family: var(--monospace);
+}
+
+.kw { color: #437bd8; }
+.var { color: #8d79e8; }
+.val { color: #e88f6d; }
+.class { color: #6ab5e1; }
+.fn { color: hsl(150, 50%, 50%); }
+
+.article-proper pre {
+    padding: 5px 10px;
+    margin: 10px auto;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+.article-proper p {
+    font-family: var(--serif);
+    text-indent: 2rem;
+    padding-bottom: 1rem;
+}
+
+.main-header {
+    font-weight: 700;
+}
+
+.article-proper h1,
+.article-proper h2,
+.article-proper h3,
+.article-proper h4,
+.article-proper h5,
+.article-proper h6 {
+    margin-left: 0;
+    font-weight: 700;
+}
+
+/* custom styles */
+.main-footer {
+    width           : 100%;
+    color           : #fff;
+    height          : auto;
+    bottom          : 0;
+    padding         : 1rem;
+    display         : flex;
+    position        : absolute;
+    font-size       : .75rem;
+    justify-content : space-between;
+    background-color: #005a5a;
+}
+
+.main-footer nav ul {
+    display: flex;
+}
+
+.main-footer nav li {
+    list-style: none;
+}
+
+.main-footer a {
+    color          : #32d3f4;
+    padding        : .5rem 1rem 0;
+    text-decoration: none;
+}
+
+.main-nav {
+    background-color: #0e3a40;
+}
+
+.main-nav ul {
+    padding: 0;
+}
+
+.main-nav li {
+    list-style-type: none;
+}
+
+.main-nav a {
+    color          : #32d3f4;
+    display        : block;
+    padding        : 10px 15px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.styled {
+    padding: 2rem;
+}
+
+.styled ul,
+.styled ol {
+    padding-left: 3rem;
+}
+
+.styled ul>li {
+    list-style-image: url(../assets/bullet.svg);
+    padding: 5px;
+}
+
+.styled section,
+.styled article {
+    margin     : auto;
+    margin-left: 2rem;
+}
+
+.styled a[href] {
+    color          : #20b0ac;
+    text-decoration: none;
+}
+
+.styled a[href]:hover {
+    color          : #32d3f4;
+    text-decoration: underline;
+}
+
+.breadcrumbs a {
+    font-size: .75rem;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    padding: 1rem 0;
+}
+
+.content-grid aside {
+    margin-bottom: 2rem;
+}
+
+.method-descriptors {
+    margin-left: 2rem;
+}
+
+.method-descriptors dt {
+    font-size: 1.5rem;
+    margin: 1rem auto;
+    border-top: 1px solid #ccc;
+    padding: 1rem 10px 10px;
+}
+
+@media screen and (min-width: 500px) {
+    body {
+        width     : 90%;
+    }
+
+    .breadcrumbs ul {
+        display: flex;
+    }
+
+    .breadcrumbs li {
+        list-style-type: none;
+    }
+
+    .breadcrumbs li:not(:last-child)::after {
+        content:'';
+        display: inline-block;
+        height: .75rem;
+        width: .75rem;
+        margin-left: .5rem;
+        background-image: url(../assets/bullet.svg);
+        background-repeat: no-repeat;
+        background-size: .5rem .5rem;
+        background-position: center;
+    }
+ 
+    .breadcrumbs li:not(:first-child) {
+        margin-left: .25rem;
+    }
+
+    .content-grid {
+        grid-template-rows: unset;
+        grid-template-columns: min-content 1fr;
+    }
+
+    .content-grid aside {
+        font-size: .75rem;
+    }
+}
