@@ -6,106 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Class Specifications - Quantarks&trade;</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
     <link rel="stylesheet" href="./src/index.css">
 
     <script src="./src/index.js"></script>
 </head>
 
 <body>
-    <nav class="nav">
+    <nav class="main-nav">
         <ul>
-            <li><a href="#!" onclick="document.querySelector('html').classList.toggle('dark')">Quantarks</a></li>
-        </ul>
-        <ul>
-            <li><a href="#!">Home</a></li>
-            <li><a href="#!">Docs</a></li>
-            <li><a href="#!">About</a></li>
-            <li><a class="dark-toggle" href="#!" onclick="toggleDarkTheme()">
-                <svg class="light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40"><path d="M10 0C6.35 0 2.94.99 0 2.7 5.97 6.16 10 12.6 10 20S5.97 33.84 0 37.3C2.94 39.01 6.35 40 10 40c11.05 0 20-8.95 20-20S21.05 0 10 0z"/></svg>
-                <svg class="dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.26000213623047 45.26000213623047"><path d="M38.63 29.26l6.63-6.63L38.63 16V6.63h-9.37L22.63 0 16 6.63H6.63V16L0 22.63l6.63 6.63v9.37H16l6.63 6.63 6.63-6.63h9.37v-9.37zm-16 5.37c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12z"/></svg>
-            </a></li>
+            <li><a href="./index.html">Quantarks</a></li>
         </ul>
     </nav>
-    <div class="padding-fix"></div>
-    <header class="banner">
-        <h1>Quantarks&trade; Docs</h1>
-    </header>
-    <main>
-        <section class="spec-section">
-            <header>
-                <h2>Quick Links</h2>
-            </header>
-            <div class="cards-container">
-                <article class="card">
-                    <figure class="card-image icon">
-                            <svg
-                                fill-rule="evenodd"
-                                stroke-miterlimit="1.414"
-                                viewBox="0 0 16 16"
-                                clip-rule="evenodd"
-                                stroke-linejoin="round"
-                                fill="#07E467">
-                                
-                                <path
-                                    fill-rule="nonzero"
-                                    d="M14.77 6.16a.988.988 0 0 0-1.974.002v4.135a.987.987 0 1 0 1.976 0V6.16zM3.587 5.363l.002 6.408c0 .583.47 1.054 1.054 1.054h.717v2.188a.989.989 0 0 0 1.975 0v-2.188h1.332v2.188a.989.989 0 0 0 1.976-.003v-2.186h.72c.58 0 1.053-.472 1.053-1.055V5.36l-8.83.002zm6.44-1.956a.373.373 0 1 1 .371-.374.373.373 0 0 1-.372.373m-4.05 0a.372.372 0 1 1 .373-.371.373.373 0 0 1-.374.373m4.205-1.945l.688-1.26a.137.137 0 0 0-.054-.186.138.138 0 0 0-.185.055L9.93 1.344A4.74 4.74 0 0 0 7.995.938c-.69 0-1.347.145-1.93.404L5.37.074a.137.137 0 1 0-.24.131l.69 1.257c-1.355.7-2.27 2.03-2.27 3.558h8.896c0-1.528-.914-2.856-2.267-3.556M2.215 5.175a.988.988 0 0 0-.988.988v4.135a.988.988 0 1 0 1.976 0V6.162a.988.988 0 0 0-.988-.987"/>
-                            </svg>
-                    </figure>
-                    <div class="card__body">
-                        <h3><a href="./csharp/index.html">C# Library</a></h3>
-                        <p>Documentation for the Android app's code using C# and Unity 3D.</p>
-                    </div>
-                </article>
-                <article class="card">
-                    <figure class="card-image icon">
-                        <svg fill="dodgerblue" viewBox="0 0 14 16"><path d="M7 1C3.14 1 0 4.14 0 8s3.14 7 7 7c.48 0 .94-.05 1.38-.14-.17-.08-.2-.73-.02-1.09.19-.41.81-1.45.2-1.8-.61-.35-.44-.5-.81-.91-.37-.41-.22-.47-.25-.58-.08-.34.36-.89.39-.94.02-.06.02-.27 0-.33 0-.08-.27-.22-.34-.23-.06 0-.11.11-.2.13-.09.02-.5-.25-.59-.33-.09-.08-.14-.23-.27-.34-.13-.13-.14-.03-.33-.11s-.8-.31-1.28-.48c-.48-.19-.52-.47-.52-.66-.02-.2-.3-.47-.42-.67-.14-.2-.16-.47-.2-.41-.04.06.25.78.2.81-.05.02-.16-.2-.3-.38-.14-.19.14-.09-.3-.95s.14-1.3.17-1.75c.03-.45.38.17.19-.13-.19-.3 0-.89-.14-1.11-.13-.22-.88.25-.88.25.02-.22.69-.58 1.16-.92.47-.34.78-.06 1.16.05.39.13.41.09.28-.05-.13-.13.06-.17.36-.13.28.05.38.41.83.36.47-.03.05.09.11.22s-.06.11-.38.3c-.3.2.02.22.55.61s.38-.25.31-.55c-.07-.3.39-.06.39-.06.33.22.27.02.5.08.23.06.91.64.91.64-.83.44-.31.48-.17.59.14.11-.28.3-.28.3-.17-.17-.19.02-.3.08-.11.06-.02.22-.02.22-.56.09-.44.69-.42.83 0 .14-.38.36-.47.58-.09.2.25.64.06.66-.19.03-.34-.66-1.31-.41-.3.08-.94.41-.59 1.08.36.69.92-.19 1.11-.09.19.1-.06.53-.02.55.04.02.53.02.56.61.03.59.77.53.92.55.17 0 .7-.44.77-.45.06-.03.38-.28 1.03.09.66.36.98.31 1.2.47.22.16.08.47.28.58.2.11 1.06-.03 1.28.31.22.34-.88 2.09-1.22 2.28-.34.19-.48.64-.84.92s-.81.64-1.27.91c-.41.23-.47.66-.66.8 3.14-.7 5.48-3.5 5.48-6.84 0-3.86-3.14-7-7-7L7 1zm1.64 6.56c-.09.03-.28.22-.78-.08-.48-.3-.81-.23-.86-.28 0 0-.05-.11.17-.14.44-.05.98.41 1.11.41.13 0 .19-.13.41-.05.22.08.05.13-.05.14zM6.34 1.7c-.05-.03.03-.08.09-.14.03-.03.02-.11.05-.14.11-.11.61-.25.52.03-.11.27-.58.3-.66.25zm1.23.89c-.19-.02-.58-.05-.52-.14.3-.28-.09-.38-.34-.38-.25-.02-.34-.16-.22-.19.12-.03.61.02.7.08.08.06.52.25.55.38.02.13 0 .25-.17.25zm1.47-.05c-.14.09-.83-.41-.95-.52-.56-.48-.89-.31-1-.41-.11-.1-.08-.19.11-.34.19-.15.69.06 1 .09.3.03.66.27.66.55.02.25.33.5.19.63h-.01z"/></svg>
-                    </figure>
-                    <div class="card__body">
-                        <h3><a href="./rest/index.html">REST API</a></h3>
-                        <p>Documentation for the online API.</p>
-                    </div>
-                </article>
-                <article class="card">
-                    <figure class="card-image icon">
-                            <svg fill="#f33" viewBox="0 0 512 512"><path d="M393.267 238.088l-.231 10.404c-.814 11.65-3.797 31.912-14.102 54.736a225.395 225.395 0 0 0 4.978-47.164c0-12.096-.958-23.968-2.799-35.544-15.091-94.901-89.626-169.923-184.138-185.518C185.706 32.285 179.048 32 179.048 32c.238.281.465.562.7.844 39.458 47.181 44.1 96.656 37.744 131.85-2.281 12.629-5.978 23.421-9.991 31.605 0 0 3.359-13.911 3.035-29.72-.293-14.234-3.572-30.006-14.986-38.552 3.497 18.378-.752 33.501-9.121 47.729C161.69 217.808 101 249.386 96 327.408v3.836c0 53.692 25.624 98.979 68.719 125.012-6.85-12.344-14.964-35.207-8.733-60.151 3.998 23.669 9.951 36.045 20.879 51.756 8.153 11.721 19.104 19.269 33.095 24.934S238.995 480 255.889 480c55.809 0 105.228-28.567 133.845-71.952l.267.061v-.007c16-25.254 26.1-55.5 26.1-88.019-.001-29.971-8.505-58.012-22.834-81.995z"/></svg>
-                    </figure>
-                    <div class="card__body">
-                        <h3><a href="./errors/index.html">Error Codes</a></h3>
-                        <p>Error codes returned by the REST API, and what they mean.</p>
-                    </div>
-                </article>
-            </div>
+    <main class="styled">
+        <h1>Quantarks&trade; Specifications</h1>
+        <section>
+            <h2>C# Library</h2>
+            <article>
+                <h3>Guides</h3>
+                <ul>
+                    <li><a href="csharp/guides/update-sequence.html">How Updates <em>Should</em> Work in the App</a></li>
+                </ul>
+            </article>
+            <article>
+                <h3>Classes</h3>
+                <ul>
+                    <li><a href="./csharp/qaudio.html">QAudio</a></li>
+                    <li><a href="./csharp/qaudiolist.html">QAudioList</a></li>
+                    <li>
+                        <a href="./csharp/qupdate.html">QUpdate</a>
+                        <ul>
+                            <li>
+                                <a href="./csharp/qaudioupdate.html">QAudioUpdate</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="./csharp/iquantarksupdater.html">IQuantarksUpdater</a></li>
+                    <li><a href="./qupdatemanager.html">QUpdateManager</a></li>
+                </ul>
+            </article>
         </section>
-        <section class="spec-section">
-            <header>
-                <h2>Other Links</h2>
-            </header>
-            <div class="cards-container">
-                <article class="card">
-                    <figure class="card-image icon">
-                        <svg fill="dodgerblue" fill-rule="evenodd" stroke-miterlimit="1.414" viewBox="0 0 16 16" clip-rule="evenodd" stroke-linejoin="round"><path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm8 2.08a.96.96 0 0 0-.96.96v5.08c0 .53.43.96.96.96h2.96c.53 0 .96-.43.96-.96V3.04a.96.96 0 0 0-.96-.96H10zm-6.96 0a.96.96 0 0 0-.96.96v9.08c0 .53.43.96.96.96H6c.53 0 .96-.43.96-.96V3.04A.96.96 0 0 0 6 2.08H3.04z"/></svg>
-                    </figure>
-                    <div class="card__body">
-                        <h3><a href="https://trello.com/b/nGIY2gxU/quantarks">Official Trello Board</a></h3>
-                        <p>For authorized persons only ;)</p>
-                    </div>
-                </article>
-                <article class="card">
-                    <figure class="card-image icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" stroke-miterlimit="1.414" viewBox="0 0 16 16" clip-rule="evenodd" stroke-linejoin="round"><path d="M8 0a8 8 0 0 0-8 8 8 8 0 0 0 5.47 7.59c.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82a7.68 7.68 0 0 1 2.003-.27c.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385A8 8 0 0 0 8 0"/></svg>
-                    </figure>
-                    <div class="card__body">
-                        <h3><a href="#!">Github Organization</a></h3>
-                        <p>Official Quantarks Github account.</p>
-                    </div>
-                </article>
-            </div>
+        <section>
+            <h2>REST APIs</h2>
+            <article>
+                <h3>Guides</h3>
+                <ul>
+                    <li><a href="rest/guides/update-sequence.html">How Updates <em>Should</em> Work in the Server</a></li>
+                </ul>
+            </article>
+            <article>
+                <h3>Classes</h3>
+                <ul>
+                    <li><a href="rest/voice.html">Voice APIs</a></li>
+                </ul>
+            </article>
         </section>
     </main>
+    <footer class="main-footer">
+        <p>
+            Quantarks&trade; Team &copy; 2018-2019
+        </p>
+        <nav>
+            <ul>
+                <li><a href="https://trello.com/b/nGIY2gxU/quantarks">Official Trello Board</a></li>
+                <li><a href="https://github.com/quantarks">Official GitHub Account</a></li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 
 </html>
