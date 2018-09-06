@@ -63,6 +63,7 @@ pre {
 .val { color: #e88f6d; }
 .class { color: #6ab5e1; }
 .fn { color: hsl(150, 50%, 50%); }
+.comment { color: #aaa; }
 
 .article-proper pre {
     padding: 5px 10px;
@@ -75,7 +76,12 @@ pre {
 .article-proper p {
     font-family: var(--serif);
     text-indent: 2rem;
+    line-height: 1.5;
     padding-bottom: 1rem;
+}
+
+.weaken {
+    opacity: 0.25;
 }
 
 .main-header {
@@ -135,7 +141,7 @@ pre {
 .main-nav a {
     color          : #32d3f4;
     display        : block;
-    padding        : 10px 15px;
+    padding        : 25px 15px;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
