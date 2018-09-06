@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Specifications - Quantarks&trade;</title>
+    <link rel="stylesheet" href="../../src/index.css">
+
+    <script src="../../src/index.js"></script>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../../index.html">Quantarks</a></li>
+        </ul>
+    </nav>
+    <main class="styled">
+        <h1 class="main-header">How Audio Content <em>Should</em> Work in the App</h1>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">C# Specifications</a></li>
+                <li><a href="./index.html">Guides</a></li>
+                <li><a href="#!">Audio Content</a></li>
+            </ul>
+        </nav>
+        <div class="content-grid">
+            <aside>
+                <h2>Contents</h2>
+                <ul>
+                    <li><a href="#qmp3">QMP3</a></li>
+                    <li><a href="#qmpz">QMPZ</a></li>
+                </ul>
+            </aside>
+            <article class="article-proper">
+                <section>
+                    <p>Audio content inside the Quantarks app consists of the audio file in the MP3 format and a transcript
+                        file in the SRT or WebVTT format.</p>
+                </section>
+                <section>
+                    <h2 id="qmp3">The QMP3 File Format</h2>
+                    <p>The QMP3 file format is a non-standard file type created for and used inside the Quantarks app. Network
+                        requests for audio content always return two files: the audio file, and the transcript file. This
+                        will result in three requests to the server: one for the initial request, another for the audio file
+                        download, and another one for the transcript file. Although this will not cause serious issues most
+                        of the time, this can still be improved. That is why the QMP3 is introduced.</p>
+                    <p>QMP3 files contain both the audio file <em>and</em> the transcript file. This reduces the number of
+                        requests. It uses the file name extension <code>.qmp3</code>. Under the hood, this is actually just
+                        a ZIP file that contains both the audio and transcript file. After it has been downloaded, it will
+                        be extracted via the <code>QAudio.Extract()</code> method.</p>
+                    <p>One thing to note is that QMP3 files contain one&mdash;and only one&mdash;pair of audio and transcript
+                        files. The two files have the same file names and different extensions. Their file names will be
+                        their <i>lookup key</i>. This will be useful when UI components reference audio content. The UI elements
+                        that can trigger audio playback (e.g. "play" buttons) have a custom string property called <code>audioKey</code> that will contain the key of the audio that they will play.</p>
+                    <p>This will be very rarely used, however, since updates often download multiple audio and transcript
+                        files. For this, the QMPZ file format will be useful.
+                    </p>
+                    <p><strong>WARNING:</strong> The QMP3 file format is being considered for removal. Do not use until further notice. Check the <a href="https://trello.com/b/nGIY2gxU/quantarks">official Trello board</a> for announcement.</p>
+                </section>
+                <section>
+                    <h2>The QMPZ File Format</h2>
+                    <p>The QMPZ file format is just another ZIP file whose extension is <code>.qmpz</code>. But unlike QMP3, QMPZ can contain multiple audio-transcript pairs. And along with it, a metadata file is included so the app can recognize any changes to the current assets. This is especially useful for updating audio content, either by downloading only the audio contents that were updated or downloading everything all at once.</p>
+                    <section>
+                        <h3>QMPZ File Structure</h3>
+<pre>/
+├─metadata.jon (file)
+│
+├─audio (directory)
+│   ├─34788481.mp3
+│   ├─1086972702.mp3
+│   ├─797578042.mp3
+│
+└─transcript (directory)
+    ├─34788481.srt
+    ├─1086972702.vtt
+    ├─797578042.srt
+</pre>
+                        <p>The <code>metadata.json</code> file contains the information about the files contents and the updates. During an <a href="./update-sequence.html">update sequence</a>, the first request to the server will be for an <code>updates.json</code> file that details the changes the update will bring. Towards the end of the update sequence, this <code>metadata.json</code> will be useful for validation, as it will be compared to <code>updates.json</code> to confirm if the app received the correct updates. If it is going to be serialized, the appropriate class to use is the <a href="../qupdate.html"><code>QUpdate</code></a> class. In its simplest form, the only required fields in the said JSON file are the following:
+<pre>
+{
+    <span class="var">"update_hash"</span>      : <span class="val">"4B5vfqaxM7pKLnpo0Ced25DohoXmcMJd61ygpuubfT3rTtIeifOcZoN3QVxf3F",</span>
+    <span class="var">"update_timestamp"</span> : <span class="val">2163911918304343300</span>
+}
+</pre>
+                            These two fields actually correspond to the <code>UpdateHash</code> and <code>UpdateTimestamp</code> properties of the <code>QUpdate</code> class.
+                        </p>
+                        <p>That said, QUpdate is an abstract class. This makes it unusable, and we need to create another class that inherits from <code>QUpdate</code>. This is where <a href="../qaudioupdate.html"><code>QAudioUpdate</code></a> comes in. Although <code>metadata.json</code> (and <code>updates.json</code> as well) only requires two fields, it adds additional fields depending on the type of updates it comes with. For example, when updating audio content, <code>updates.json</code> and <code>metadata.json</code> will contain two additional fields:
+<pre>
+{
+    <span class="weaken"><span class="var">"update_hash"</span>      : <span class="val">"4B5vfqaxM7pKLnpo0Ced25DohoXmcMJd61ygpuubfT3rTtIeifOcZoN3QVxf3F"</span>,
+    <span class="var">"update_timestamp"</span> : <span class="val">2163911918304343300</span>,</span>
+    <span class="var">"removed_keys"</span> : [<span class="val">"202529469"</span>, <span class="val">"4587891"</span>],
+    <span class="var">"added_keys"</span> : [<span class="val">"620248701"</span>],
+}
+</pre>
+</p>
+<p>
+    The two new fields, the <code>removed_keys</code> and <code>added_keys</code>, indicate which audio content are removed and added by this update respectively. Because of this, you can use them to send a <code>GET</code> request to the server which will return a QMPZ file that contains <em>only the newly added files</em>. This eliminates the unnecessary download of audio and transcript files that were not actually updated.
+</p>
+                    </section>
+                    <section>
+                        <h3>Which Class Should I Use to Represent QMP3 and QMPZ Files?</h3>
+                        <p>QMP3 files are appropriately represented by <a href="../qaudio.html"><code>QAudio</code></a>, and QMPZ by <a href="../qaudiolist.html"><code>QAudioList</code></a>. To better understand how <code>QAudioList</code> works, you can simply think of it as an array of <code>QAudio</code>s. But aside from that, <code>QAudioList</code> is also optimized so it doesn't hoard memory space.</p>
+                    </section>
+                    <section>
+                        <h3>Examples</h3>
+                        <p>For example, a UI element, in this case a button, can trigger audio playback. If so, it should have a custom property called <code>AudioKey</code>, which is a string and contains the lookup key for the audio and the transcript.</p>
+<pre>...
+1  <span class="comment">// get the button</span>
+2  <span class="class">Button</span> <span class="var">btn</span> = ...;
+3
+4  <span class="comment">// get the audio lookup key</span>
+5  <span class="kw">string</span> <span class="var">key</span> = btn.AudioKey;
+6
+7  <span class="comment">// find the QAudio using the lookup key</span>
+8  <span class="class">QAudio</span> <span class="var">qAudio</span> = <span class="kw">this</span>.<span class="class">QAudios</span>.GetQAudio(<span class="var">key</span>);
+9
+10 <span class="comment">// play the audio</span>
+11 <span class="kw">if</span>( <span class="var">qAudio</span> != <span class="kw">null</span> )
+12     GetComponent&lt;<span class="class">QAudioPlayer</span>>().Play(<span class="var">qAudio</span>);
+...</pre>
+                        <p>Notice how in line 8, the code used <code>this.QAudios</code> to look for the QAudio object. This is actually a <code>QAudioList</code> object that was initialized when the app was started. You only need to use one <code>QAudioList</code> in the entire app lifecycle. This will be your audio content manager.</p>
+
+                        <p>
+                            For more details on how these work on the code-level, check their respective spec pages:
+                            <ul>
+                                <li><a href="../qaudio.html">QAudio</a></li>
+                                <li><a href="../qaudiolist.html">QAudioList</a></li>
+                                <li><a href="../qaudioupdate.html">QAudioUpdate</a></li>
+                                <li><a href="../qaudioplayer.html">QAudioPlayer</a></li>
+                            </ul>
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Playing Audio Content</h2>
+                    <p>Internally, <code>QAudio</code> objects use a native implementation of audio files. But this guide recommends that you do not play the <code>Audio</code> property of the QAudio object directly. Instead, you are encouraged to pass the QAudio object to <a href="../qaudioplayer.html#play"><code>QAudioPlayer.Play()</code></a>. This method not only plays the audio but also displays the subtitles on the screen. It does all the work for you.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>
+            Quantarks&trade; Team &copy; 2018-2019
+        </p>
+        <nav>
+            <ul>
+                <li><a href="https://trello.com/b/nGIY2gxU/quantarks">Official Trello Board</a></li>
+                <li><a href="https://github.com/quantarks">Official GitHub Account</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
