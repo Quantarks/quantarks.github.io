@@ -29,6 +29,7 @@ body {
     position  : relative;
     padding-bottom: 50px;
     scroll-behavior: smooth;
+    line-height: 1.5;
 }
 
 /* sane defaults */
@@ -76,8 +77,7 @@ pre {
 .article-proper p {
     font-family: var(--serif);
     text-indent: 2rem;
-    line-height: 1.5;
-    padding-bottom: 1rem;
+    margin: 1rem auto;
 }
 
 .weaken {
