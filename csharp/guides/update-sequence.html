@@ -31,8 +31,9 @@
             <aside>
                 <h2>Contents</h2>
                 <ul>
-                    <li><a href="#qmp3">QMP3</a></li>
-                    <li><a href="#qmpz">QMPZ</a></li>
+                    <li><a href="#files-involved">Files Involved</a></li>
+                    <li><a href="#how-it-works-programmatically">How It Works Programmatically</a></li>
+                    <li><a href="#different-classes-involved">Different Classes Involved</a></li>
                 </ul>
             </aside>
             <article class="article-proper">
@@ -67,7 +68,7 @@
                         the update sequence for each asset type.</p>
                 </section>
                 <section>
-                    <h2>The Files Involved</h2>
+                    <h2 id="files-involved">The Files Involved</h2>
                     <p>In the mentioned update sequence above, we noticed that we handled three different files: <code>updates.json</code>,
                         <code>metadata.json</code>, and <code>assets.json</code>. It should be noted that these three JSON
                         files follow the same schema, only that they have different names to make it easier to write about
@@ -80,7 +81,7 @@
                     <p>The <code>assets.json</code> is the JSON file that records all assets that the app currently uses. It acts as an inventory file of all content within the app. When an update gets applied, this file gets updated as well.</p>
                 </section>
                 <section>
-                    <h2>How It Works Programmatically</h2>
+                    <h2 id="how-it-works-programmatically">How It Works Programmatically</h2>
                     <p>All update sequences are managed by classes that inherit from the <a href="../qupdatemanager.html">QUpdateManager</a> class. It is an abstract class that details the requirements that an update manager class should have. Generally, an asset update manager are required to have the following properties and methods:</p>
                     <ul>
                         <li>The <code>UpdateURI</code> property, which is a <code>URI</code> that indicates where the update manager should send requests for updates.</li>
@@ -99,7 +100,7 @@
                     </ol>
                 </section>
                 <section>
-                    <h2>Different Classes Involved</h2>
+                    <h2 id="different-classes-involved">Different Classes Involved</h2>
                     <p>As mentioned above, <code>QUpdateManager</code> is the superclass that manages all updates. However, since every asset type reside in different folders inside the cache, and their update URIs will be different from each other, it is necessary to have special classes for everyone of them.</p>
 
                     <p>The <a href="../qaudioupdatemanager.html"><code>QAudioUpdateManager</code></a> manages the update of audio content inside the app. It uses <a href="../qaudioupdate.html"><code>QAudioUpdate</code></a> objects to update audio and transcript assets.</p>
