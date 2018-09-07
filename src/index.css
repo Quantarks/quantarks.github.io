@@ -60,7 +60,9 @@ pre {
     font-family: var(--monospace);
 }
 
-code { color: #000; }
+code {
+    color: #000;
+}
 
 pre {
     overflow: auto;
@@ -120,25 +122,24 @@ code.path {
     height          : auto;
     bottom          : 0;
     padding         : 1rem;
-    display         : flex;
+    display         : block;
     position        : absolute;
     font-size       : .75rem;
     justify-content : space-between;
     background-color: #005a5a;
 }
 
-.main-footer nav ul {
-    display: flex;
-}
-
 .main-footer nav li {
     list-style: none;
+    flex: 1;
 }
 
 .main-footer a {
     color          : #32d3f4;
     padding        : .5rem 1rem 0;
     text-decoration: none;
+    text-align: center;
+    display: flex;
 }
 
 .main-nav {
@@ -162,8 +163,8 @@ code.path {
     text-decoration: none;
 }
 
-.styled h1 {
-    word-break: break-all;
+.styled {
+    margin-bottom: 65px;
 }
 
 .styled ul,
@@ -213,7 +214,6 @@ code.path {
     margin    : 1rem auto;
     padding   : 1rem 10px 10px;
     font-size : 1.5rem;
-    word-break: break-all;
     border-top: 1px solid #ccc;
 }
 
@@ -277,6 +277,12 @@ code.path {
 
     .content-grid aside {
         font-size: .75rem;
+        position: fixed;
+        left: 6vw;
+    }
+
+    .content-grid {
+        padding-left: 12rem;
     }
 
     .styled {
