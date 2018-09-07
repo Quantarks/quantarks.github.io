@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Specifications - Quantarks&trade;</title>
+    <link rel="stylesheet" href="../../src/index.css">
+
+    <script src="../../src/index.js"></script>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../../index.html">Quantarks</a></li>
+        </ul>
+    </nav>
+    <main class="styled">
+        <h1 class="main-header">How Updates <em>Should</em> Work in the App</h1>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">C# Specifications</a></li>
+                <li><a href="./index.html">Guides</a></li>
+                <li><a href="#!">Update Sequence</a></li>
+            </ul>
+        </nav>
+        <div class="content-grid">
+            <aside>
+                <h2>Contents</h2>
+                <ul>
+                    <li><a href="#qmp3">QMP3</a></li>
+                    <li><a href="#qmpz">QMPZ</a></li>
+                </ul>
+            </aside>
+            <article class="article-proper">
+                <section>
+                    <p>The update sequence is a somewhat complicated process. It is different for every type of asset. But
+                        in principle, they should follow the general process flow:</p>
+                    <ol>
+                        <li>The app initiates the update sequence by sending a <code>GET</code> request to the server.</li>
+                        <li>The server returns a metadata file, the <code>updates.json</code>, that details the changes brought
+                            by this update.</li>
+                        <li>The app checks the metadata file's update hash and timestamp and decides if it needs updating.</li>
+                        <li>If the app needs to update, it lists down all assets that needs to be downloaded.</li>
+                        <li>Using the list of assets to download, the app sends a second request to the server for the assets.</li>
+                        <li>The server sends back a compressed file that contains the assets and a metadata file, the <code>metadata.json</code>.</li>
+                        <li>The app extracts the file to a temporary folder inside the app's cache folder.</li>
+                        <li>
+                            The app compares the <code>updates.json</code> to the <code>metadata.json</code> file included
+                            in the compressed file to see if the server sent the correct updates.
+                            <ul>
+                                <li>If there has been a discrepancy, e.g. the assets sent back by the server did not match
+                                    the ones in the <code>updates.json</code>, it will send an error log to the server, and
+                                    initiate a <a href="#full_update">full update</a>.</li>
+                            </ul>
+                        </li>
+                        <li>The app then places the newly downloaded assets into their respective folders inside the app's
+                            cache folder, and updates the root's <code>assets.json</code> file.</li>
+                    </ol>
+
+                    <p>Please note, however, that this is implemented in different ways for every asset type in the app (images,
+                        audio, video, 3D models, etc.) This makes <code>QUpdateManager</code> unable to account for all of
+                        this, and we need additional classes that inherit from <code>QUpdateManager</code> that will manage
+                        the update sequence for each asset type.</p>
+                </section>
+                <section>
+                    <h2>The Files Involved</h2>
+                    <p>In the mentioned update sequence above, we noticed that we handled three different files: <code>updates.json</code>,
+                        <code>metadata.json</code>, and <code>assets.json</code>. It should be noted that these three JSON
+                        files follow the same schema, only that they have different names to make it easier to write about
+                        them in the documentation.</p>
+
+                    <p>The <code>updates.json</code> is the JSON file sent back by the server when the app first requests for an update. It is placed in the temporary folder of the app's cache. It details all changes that the latest update will bring.</p>
+
+                    <p>The <code>metadata.json</code> is the JSON file sent back by the server when it sends back the assets in the compressed file. It details all of the contents of the compressed file, which can be used to check if the assets match the contents of the <code>updates.json</code>.</p>
+                    
+                    <p>The <code>assets.json</code> is the JSON file that records all assets that the app currently uses. It acts as an inventory file of all content within the app. When an update gets applied, this file gets updated as well.</p>
+                </section>
+                <section>
+                    <h2>How It Works Programmatically</h2>
+                    <p>All update sequences are managed by classes that inherit from the <a href="../qupdatemanager.html">QUpdateManager</a> class. It is an abstract class that details the requirements that an update manager class should have. Generally, an asset update manager are required to have the following properties and methods:</p>
+                    <ul>
+                        <li>The <code>UpdateURI</code> property, which is a <code>URI</code> that indicates where the update manager should send requests for updates.</li>
+                        <li>The <code>FetchUpdateChanges()</code> method which downloads the <code>updates.json</code> from the server.</li>
+                        <li>The <code>IsUpdatable()</code> method checks the <code>update.json</code>'s update hash and timestamp to see if the update is applicable to the current app's state.</li>
+                        <li>The <code>PrepareAssetList()</code> method, which returns a <code>QUpdate</code> object containing all information about the assets that need to be downloaded.</li>
+                    </ul>
+                    <p>The developer should be responsible for the whole update sequence so they can have full control over the update. These are the following steps to perform the update inside the app:</p>
+                    <ol>
+                        <li>The developer should make sure that the <code>UpdateURI</code> is set, otherwise the succeeding steps would fail. This should be taken out of a configuration file.</li>
+                        <li>The developer should invoke <code>QUpdateManager.FetchUpdateChanges()</code> to download the <code>updates.json</code>.</li>
+                        <li>Once the download finishes, <a href="../qupdatemanager.html#is_updatable"><code>QUpdateManager.IsUpdatable()</code></a> should then be called. Notice that ignoring this step will not raise any errors. However, if the app already has the latest updates, the app will have no idea and will proceed downloading assets it already has.</li>
+                        <li>The <a href="../qupdatemanager.html#prepare_asset_list"><code>QUpdateManager.PrepareAssetList()</code></a> will then prepare a <code>QUpdate</code> objects which contains everything needed to update the current asset collection.</li>
+                        <li>The <a href="../qupdate.html"><code>QUpdate</code></a> object has a method called <a href="../qupdate.html#fetch_assets"><code>FetchAssets()</code></a> that will download everything it needs to update.</li>
+                        <li>The <a href="../qupdate.html#apply_changes"><code>QUpdate.ApplyChanges()</code></a> will then finalize the update by transferring the downloaded asset files from the temporary folder to their respective folders inside the app's cache folder.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>Different Classes Involved</h2>
+                    <p>As mentioned above, <code>QUpdateManager</code> is the superclass that manages all updates. However, since every asset type reside in different folders inside the cache, and their update URIs will be different from each other, it is necessary to have special classes for everyone of them.</p>
+
+                    <p>The <a href="../qaudioupdatemanager.html"><code>QAudioUpdateManager</code></a> manages the update of audio content inside the app. It uses <a href="../qaudioupdate.html"><code>QAudioUpdate</code></a> objects to update audio and transcript assets.</p>
+
+                    <p>The <a href="../qimageupdatemanager.html"><code>QImageUpdateManager</code></a> manages the update of images inside the app. It uses <a href="../qimageupdate.html"><code>QImageUpdate</code></a> objects to update image assets.</p>
+
+                    <p>The <a href="../qvideoupdatemanager.html"><code>QVideoUpdateManager</code></a> manages the update of videos inside the app. It uses <a href="../qvideoupdate.html"><code>QVideoUpdate</code></a> objects to update video assets.</p>
+
+                    <p>All of these classes inherit from <code>QUpdateManager</code>, overrides all of its methods to implement specific update processes according to asset types, and may or may not have additional properties or methods as developers think appropriate. For more information on how these classes <em>should</em> be implemented, check their respective specifications.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>
+            Quantarks&trade; Team &copy; 2018-2019
+        </p>
+        <nav>
+            <ul>
+                <li><a href="https://trello.com/b/nGIY2gxU/quantarks">Official Trello Board</a></li>
+                <li><a href="https://github.com/quantarks">Official GitHub Account</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
