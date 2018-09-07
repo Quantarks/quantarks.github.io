@@ -33,15 +33,15 @@
                     <li>
                         Properties
                         <ul>
-                            <li><a href="#update_hash">UpdateHash</a></li>
-                            <li><a href="#update_timestamp">UpdateTimestamp</a></li>
+                            <li><a href="#update_hash">Update<wbr>Hash</a></li>
+                            <li><a href="#update_timestamp">Update<wbr>Timestamp</a></li>
                         </ul>
                     </li>
                     <li>
                         Methods
                         <ul>
-                            <li><a href="#is_later">IsLater()</a></li>
-                            <li><a href="#apply_changes">ApplyChanges()</a></li>
+                            <li><a href="#is_later">Is<wbr>Later()</a></li>
+                            <li><a href="#apply_changes">Apply<wbr>Changes()</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -57,17 +57,17 @@
                 <section>
                     <h2>Properties</h2>
                     <dl class="method-descriptors">
-                        <dt id="update_hash">UpdateHash</dt>
+                        <dt id="update_hash">Update<wbr>Hash</dt>
                         <dd>
                             <pre>[<span class="fn">JsonProperty</span>(<span class="val">"update_hash"</span>)]
 <span class="kw">public string</span> <span class="var">UpdateHash</span>;</pre>
-                            <p>The MD5-SHA hash that comes with the update. This comes from the <code>updates.json</code>                                that
+                            <p>The MD5-SHA hash that comes with the update. This comes from the <code>updates<wbr>.json</code>                                that
                                 the server returns when the <code>Q<wbr>Update<wbr>Manager<wbr>.Fetch<wbr>Update<wbr>Metadata()</code>                                is
                                 invoked.
                             </p>
                         </dd>
 
-                        <dt id="update_timestamp">UpdateTimestamp</dt>
+                        <dt id="update_timestamp">Update<wbr>Timestamp</dt>
                         <dd>
                             <pre>[<span class="fn">JsonProperty</span>(<span class="val">"update_timestamp"</span>)]
 <span class="kw">public long</span> <span class="var">UpdateTimestamp</span>;</pre>
@@ -78,7 +78,7 @@
                 <section>
                     <h2>Methods</h2>
                     <dl class="method-descriptors">
-                        <dt id="is_later">IsLater()</dt>
+                        <dt id="is_later">Is<wbr>Later()</dt>
                         <dd>
                             <pre><span class="kw">public abstract bool</span> IsLater();</pre>
                             <p>Checks if this update's timestamp is greater than the timestamp of the currently applied update.</p>
@@ -90,14 +90,14 @@
                                 used, and <code>false</code> if otherwise.</p>
                         </dd>
 
-                        <dt id="apply_changes">ApplyChanges()</dt>
+                        <dt id="apply_changes">Apply<wbr>Changes()</dt>
                         <dd>
                             <pre><span class="kw">public abstract void</span> ApplyChanges() <span class="kw">throws</span> <span class="class">Exception</span>;</pre>
                             <p>Applies this update. It should not check for anything. It just applies the changes; the developer
                                 should use caution and check everything that needs to be checked before invoking this method.
                                 This cannot be undone (as of yet).</p>
                             <p><strong>NOTE:</strong> This is not actually implemented in this class. Every asset type has
-                                their own cache folders, and their respective <code>updates.json</code> are different. Every
+                                their own cache folders, and their respective <code>updates<wbr>.json</code> are different. Every
                                 asset type has their own update object. For more details on how
                                 this happens, take a look at <a href="./guides/update-sequence">How Updates <em>Should</em> Work
                                     in the App</a>.</p>
@@ -110,7 +110,7 @@
                     <p>
                         These are the classes that are known to inherit from this class:
                         <ul>
-                            <li><a href="./qaudioupdate.html">QAudioUpdate</a></li>
+                            <li><a href="./qaudioupdate.html">QAudio<wbr>Update</a></li>
                         </ul>
                     </p>
                 </section>

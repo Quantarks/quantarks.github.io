@@ -18,12 +18,12 @@
         </ul>
     </nav>
     <main class="styled">
-        <h1 class="main-header">QAudio <small>public class</small></h1>
+        <h1 class="main-header">Q<wbr>Audio <small>public class</small></h1>
         <nav class="breadcrumbs">
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="./index.html">C# Specifications</a></li>
-                <li><a href="#!">QAudio</a></li>
+                <li><a href="#!">Q<wbr>Audio</a></li>
             </ul>
         </nav>
         <div class="content-grid">
@@ -49,7 +49,7 @@
             </aside>
             <article class="article-proper">
                 <section>
-                    <p><code>QAudio</code> is the programmatic representation of audio content inside the Quantarks app.
+                    <p><code>Q<wbr>Audio</code> is the programmatic representation of audio content inside the Quantarks app.
                         For more information about how audio content is handled internally, check out <a href="./guides/audio-content.html">How Audio Content <em>Should</em> Work in the App</a>.</p>
                 </section>
                 <section>
@@ -77,28 +77,28 @@
     <span class="kw">throws</span> <span class="class">FileNotFoundException</span>, <span class="class">UriFormatException</span>;</pre>
                             <p>Extracts the audio and transcript from a <code title="The QMP3 file is a non-standard file type created for use inside the Quantarks app. See &quot;How Audio Content Should Work in the App&quot; for more details.">*.qmp3</code> file.</p>
                             <p>
-                                <strong>NOTE:</strong> This mereley creates a <code>File</code> object out of the file <code>filePath</code> points to. Then it passes the <code>File</code> object
+                                <strong>NOTE:</strong> This mereley creates a <code>File</code> object out of the file <code>file<wbr>Path</code> points to. Then it passes the <code>File</code> object
                                 to <a href="#extract_file"><code>Extract(File)</code>.</a>
                             </p>
                             <p>
                                 <strong>PARAMETERS:</strong>
                                 <ul>
                                     <li>
-                                        <code><span class="kw">Uri</span> <span class="var">filePath</span></code>
+                                        <code><span class="kw">Uri</span> <span class="var">file<wbr>Path</span></code>
                                         <p>The path of the <code>*.qmp3</code> file to be extracted.</p>
                                     </li>
                                 </ul>
                             </p>
-                            <p><strong>RETURNS:</strong> The new QAudio object that results from this operation.</p>
+                            <p><strong>RETURNS:</strong> The new Q<wbr>Audio object that results from this operation.</p>
                             <p>
                                 <strong>THROWS:</strong>
                                 <ul>
                                     <li>
-                                        FileNotFoundException
+                                        <code>File<wbr>Not<wbr>Found<wbr>Exception</code>
                                         <p>Thrown when the app cannot find the file pertained to by the URI.</p>
                                     </li>
                                     <li>
-                                        UriFormatException
+                                        <code>Uri<wbr>Format<wbr>Exception</code>
                                         <p>Thrown when the URI passed to this method has invalid format.</p>
                                     </li>
                                 </ul>
@@ -114,21 +114,21 @@
                                 <strong>PARAMETERS:</strong>
                                 <ul>
                                     <li>
-                                        <code><span class="class">File</span> <span class="var">filePath</span></code>
+                                        <code><span class="class">File</span> <span class="var">file<wbr>Path</span></code>
                                         <p>The <code>*.qmp3</code> file to be extracted.</p>
                                     </li>
                                 </ul>
                             </p>
-                            <p><strong>RETURNS:</strong> The new QAudio object that results from this operation.</p>
+                            <p><strong>RETURNS:</strong> The new Q<wbr>Audio object that results from this operation.</p>
                             <p>
                                 <strong>THROWS:</strong>
                                 <ul>
                                     <li>
-                                        FileNotFoundException
+                                        <code>File<wbr>Not<wbr>Found<wbr>Exception</code>
                                         <p>Thrown when the app cannot find the file pertained to by the URI.</p>
                                     </li>
                                     <li>
-                                        UriFormatException
+                                        <code>Uri<wbr>Format<wbr>Exception</code>
                                         <p>Thrown when the URI passed to this method has invalid format.</p>
                                     </li>
                                 </ul>
