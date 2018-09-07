@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Specifications - Quantarks&trade;</title>
+    <link rel="stylesheet" href="../src/index.css">
+
+    <script src="../src/index.js"></script>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html">Quantarks</a></li>
+        </ul>
+    </nav>
+    <main class="styled">
+        <h1 class="main-header">QUpdateManager <small>public abstract class</small></h1>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./index.html">C# Specifications</a></li>
+                <li><a href="#!">QUpdateManager</a></li>
+            </ul>
+        </nav>
+        <div class="content-grid">
+            <aside>
+                <h2>Contents</h2>
+                <ul>
+                    <li>
+                        Properties
+                        <ul>
+                            <li><a href="#update_uri">UpdateURI</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Methods
+                        <ul>
+                            <li><a href="#fetch_update_changes">FetchUpdateChanges()</a></li>
+                            <li><a href="#is_updatable">IsUpdatable()</a></li>
+                            <li><a href="#prepare_asset_list">PrepareAssetList()</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <article class="article-proper">
+                <section>
+                    <p><code>QUpdateManager</code> is the class that manages updates. It is created to organize updates and eliminate the need for rewriting update logic for every single asset type. Reading <a href="./guides/update-sequence.html">how the update sequence should work</a> before starting development will be helpful.</p>
+                </section>
+                <section>
+                    <h2>Properties</h2>
+                    <dl class="method-descriptors">
+                        <dt id="update_uri">UpdateURI</dt>
+                        <dd>
+                            <pre><span class="kw">public</span> <span class="class">Uri</span> <span class="var">UpdateURI</span>;</pre>
+                            <p>The server URL where this object will check for updates.</p>
+                        </dd>
+                    </dl>
+                </section>
+                <section>
+                    <h2>Methods</h2>
+                    <dl class="method-descriptors">
+                        <dt id="fetch_update_changes">FetchUpdateChanges()</dt>
+                        <dd>
+                            <pre><span class="kw">public abstract void</span> FetchUpdateChanges() <span class="kw">throws</span> <span class="class">Exception</span>;</pre>
+                            <p>Downloads the <code>updates.json</code> from the server. It will place the file inside the <code class="path">temp/</code> folder inside the app's cache folder.</p>
+                            <p><strong>THROWS:</strong> an Exception if the server returned an error, or the connection was interrupted.</p>
+                        </dd>
+
+                        <dt id="is_updatable">IsUpdatable()</dt>
+                        <dd>
+                            <pre><span class="kw">public abstract bool</span> IsUpdatable() <span class="kw">throws</span> <span class="class">FileNotFoundException</span>;</pre>
+                            <p>Checks if the <code class="path">temp/updates.json</code> is later than what is currently used by the app. This works by comparing <code>updates.json</code> and <code>assets.json</code> on their <code>update_hash</code> and <code>update_timestamp</code> fields.</p>
+                            
+                            <p><strong>THROWS:</strong> A <code>FileNotFoundException</code> if either <code>assets.json</code> or <code class="path">temp/updates.json</code> cannot be found.</p>
+                        </dd>
+
+                        <dt id="prepare_asset_list">PrepareAssetList()</dt>
+                        <dd>
+                            <pre><span class="kw">public abstract QUpdate</span> PrepareAssetList() <span class="kw">throws</span> <span class="class">FileNotFoundException</span>;</pre>
+                            <p>Serializes <code class="path">temp/updates.json</code> into a QUpdate object.</p>
+                            
+                            <p><strong>RETURNS:</strong> a QUpdate object that was created from the <code>updates.json</code></p>
+
+                            <p><strong>THROWS:</strong> A <code>FileNotFoundException</code> if <code class="path">temp/updates.json</code> cannot be found.</p>
+                        </dd>
+                    </dl>
+                </section>
+                <section>
+                    <h2>Direct Known Descendants</h2>
+                    <p>
+                        These are the classes that are known to inherit from this class:
+                        <ul>
+                            <li><a href="./qaudioupdatemanager.html">QAudioUpdateManager</a></li>
+                            <li><a href="./qimageupdatemanager.html">QImageUpdateManager</a></li>
+                            <li><a href="./qvideoupdatemanager.html">QVideoUpdateManager</a></li>
+                        </ul>
+                    </p>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>
+            Quantarks&trade; Team &copy; 2018-2019
+        </p>
+        <nav>
+            <ul>
+                <li><a href="https://trello.com/b/nGIY2gxU/quantarks">Official Trello Board</a></li>
+                <li><a href="https://github.com/quantarks">Official GitHub Account</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
