@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Specifications - Quantarks&trade;</title>
+    <link rel="stylesheet" href="../src/index.css">
+
+    <script src="../src/index.js"></script>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html">Quantarks</a></li>
+        </ul>
+    </nav>
+    <main class="styled">
+        <h1 class="main-header">QAudio<wbr>List <small>public class</small></h1>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./index.html">C# Specifications</a></li>
+                <li><a href="#!">QAudio<wbr>List</a></li>
+            </ul>
+        </nav>
+        <div class="content-grid">
+            <aside>
+                <h2>Contents</h2>
+                <ul>
+                    <li>
+                        Properties
+                        <ul>
+                            <li><a href="#items">Items</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Methods
+                        <ul>
+                            <li><a href="#get_qaudio">GetQAudio(String)</a></li>
+                            <li><a href="#refresh">Refresh()</a></li>
+                            <li><a href="#from_json">FromJson()</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <article class="article-proper">
+                <section>
+                    <p><code>QAudio<wbr>List</code> is the class that manages audio assets as they are being used inside
+                        the app. Each UI element that can trigger audio playback must have a <code>AudioKey</code> string
+                        property that contains the lookup key for the audio content that it is supposed to play.For more
+                        information about how audio content is handled internally, check out <a href="./guides/audio-content.html">How
+                            Audio Content <em>Should</em> Work in the App</a>.</p>
+                </section>
+                <section>
+                    <h2>Properties</h2>
+                    <dl class="method-descriptors">
+                        <dt id="items">Items</dt>
+                        <dd>
+                            <pre><span class="kw">public</span> <span class="class">List</span>&lt;<span class="kw">string</span>> <span class="var">Items</span> { <span class="kw">get</span>; <span class="kw">private set</span>; }</pre>
+                            <p>List of lookup keys for audio content.</p>
+                        </dd>
+                    </dl>
+                </section>
+                <section>
+                    <h2>Methods</h2>
+                    <dl class="method-descriptors">
+                        <dt id="get_qaudio">GetQAudio(String)</dt>
+                        <dd>
+                            <pre><span class="kw">public static</span> <span class="class">QAudio</span> GetQAudio(<span class="class">String</span> <span class="var">key</span>)
+    <span class="kw">throws</span> <span class="class">FileNotFoundException</span>, <span class="class">ArgumentOutOfRangeException</span>;</pre>
+                            <p>Gets the QAudio object by looking it up using the provided key.</p>
+                            <p>
+                                <strong>PARAMETERS:</strong>
+                                <ul>
+                                    <li>
+                                        <code><span class="kw">string</span> <span class="var">key</span></code>
+                                        <p>The lookup key of the audio content to be played.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p><strong>RETURNS:</strong> The new Q<wbr>Audio object that results from this operation.</p>
+                            <p>
+                                <strong>THROWS:</strong>
+                                <ul>
+                                    <li>
+                                        <code>File<wbr>Not<wbr>Found<wbr>Exception</code>
+                                        <p>Thrown when the app cannot find the audio or transcript file that has the same key as the one provided.</p>
+                                    </li>
+                                    <li>
+                                        <code>Argument<wbr>Out<wbr>Of<wbr>Range<wbr>Exception</code>
+                                        <p>Thrown when the <code>key</code> passed is not in the <code>Items</code> property of this object.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </dd>
+
+                        <dt id="refresh">Refresh()</dt>
+                        <dd>
+                            <pre><span class="kw">public void</span> Refresh()
+    <span class="kw">throws</span> <span class="class">FileNotFoundException</span>;</pre>
+                            <p>Refreshes this object by getting the lookup keys from <code>assets.json</code> and replacing the items in the <code>Items</code> property.</p>
+                            <p>
+                                <strong>THROWS:</strong>
+                                <ul>
+                                    <li>
+                                        <code>File<wbr>Not<wbr>Found<wbr>Exception</code>
+                                        <p>Thrown when the app cannot find the <code>assets.json</code> file..</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </dd>
+
+                        <dt id="from_json">FromJson()</dt>
+                        <dd>
+                            <pre><span class="kw">public static</span> <span class="class">QAudioList</span> FromJson(<span class="kw">string</span> <span class="var">jsonString</span>)
+    <span class="kw">throws</span> <span class="class">JsonException</span>;</pre>
+                            <p>Creates a new QAudio<wbr>List object from a JSON string.</p>
+                            <p>
+                                <strong>THROWS:</strong>
+                                <ul>
+                                    <li>
+                                        <code></code>
+                                        <p>Thrown when the app cannot find the <code>assets.json</code> file..</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </dd>
+                    </dl>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>
+            Quantarks&trade; Team &copy; 2018-2019
+        </p>
+        <nav>
+            <ul>
+                <li><a href="https://trello.com/b/nGIY2gxU/quantarks">Official Trello Board</a></li>
+                <li><a href="https://github.com/quantarks">Official GitHub Account</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
