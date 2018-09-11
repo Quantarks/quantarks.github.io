@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Specifications - Quantarks&trade;</title>
+    <link rel="stylesheet" href="../src/index.css">
+
+    <script src="../src/index.js"></script>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html">Quantarks</a></li>
+        </ul>
+    </nav>
+    <main class="styled">
+        <h1 class="main-header">Voice APIs</h1>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./index.html">REST API Specifications</a></li>
+                <li><a href="#!">Voice APIs</a></li>
+            </ul>
+        </nav>
+        <div class="content-grid">
+            <aside>
+                <h2>Contents</h2>
+                <ul>
+                    <li>
+                        Operations
+                        <ul>
+                            <li><a href="#get">GET</a></li>
+                            <li><a href="#post">POST</a></li>
+                            <li><a href="#delete">DELETE</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <article class="article-proper">
+                <section>
+                    <p>The Voice APIs provide enhanced user experience in the Quantarks App by providing audio content that explain topics in greater detail.
+                        For more information about how audio content is handled in the app, check out <a href="./guides/audio-content.html">How Audio Content <em>Should</em> Work in the App</a>.</p>
+                </section>
+                <section>
+                    <h2>Operations</h2>
+                    <dl class="method-descriptors">
+                        <dt id="get">Getting Audio Files</dt>
+                        <dd>
+                            <pre><span class="kw">GET</span> /api/v1/voice/</pre>
+                            <p>Returns a <code>*.qmpz</code> file.</p>
+                            <p>
+                                <strong>PARAMETERS:</strong>
+                                <dl class="param-descriptors">
+                                    <dt><code>auth: <span class="kw">string</span></code> <span class="required">Required</span></dt>
+                                    <dd>The authentication ID of the app. This is a string saved internally both on the server and the app's configuration. If the auth ID saved in the app and the one in the server does not match, the server will return a <code class="path">403 Forbidden</code> status code.</dd>
+
+                                    <dt><code>keys: <span class="kw">string</span></code> <span class="required">Required</span></dt>
+                                    <dd>The keys of audio files requested. This should be a stringified JSON array of strings in this format:
+                                        <pre>["key1", "key2", "key3", ...]</pre>
+                                        If this parameter contains invalid JSON, the server returns a <code class="path">400 Bad Request</code> status code.
+                                    </dd>
+                                </dl>
+                            </p>
+                            <p><strong>RETURNS:</strong> A <code>.qmpz</code> file containing the requested audio and transcript files.</p>
+                        </dd>
+
+                        <dd>
+                                <pre><span class="kw">GET</span> /api/v1/voice/</pre>
+                                <p>Returns a <code>*.qmpz</code> file.</p>
+                                <p>
+                                    <strong>PARAMETERS:</strong>
+                                    <dl class="param-descriptors">
+                                        <dt><code>auth: <span class="kw">string</span></code> <span class="required">Required</span></dt>
+                                        <dd>The authentication ID of the app. This is a string saved internally both on the server and the app's configuration. If the auth ID saved in the app and the one in the server does not match, the server will return a <code class="path">403 Forbidden</code> status code.</dd>
+    
+                                        <dt><code>keys: <span class="kw">string</span></code> <span class="required">Required</span></dt>
+                                        <dd>The keys of audio files requested. This should be a stringified JSON array of strings in this format:
+                                            <pre>["key1", "key2", "key3", ...]</pre>
+                                            If this parameter contains invalid JSON, the server returns a <code class="path">400 Bad Request</code> status code.
+                                        </dd>
+                                    </dl>
+                                </p>
+                                <p><strong>RETURNS:</strong> A <code>.qmpz</code> file containing the requested audio and transcript files.</p>
+                            </dd>
+                    </dl>
+                </section>
+                <section>
+                    <h2>Methods</h2>
+                    <dl class="method-descriptors">
+                        <dt id="extract_uri">Extract(Uri)</dt>
+                        <dd>
+                            <pre><span class="kw">public static</span> <span class="class">QAudio</span> Extract(<span class="class">Uri</span> <span class="var">filePath</span>)
+    <span class="kw">throws</span> <span class="class">FileNotFoundException</span>, <span class="class">UriFormatException</span>;</pre>
+                            <p>Extracts the audio and transcript from a <code title="The QMP3 file is a non-standard file type created for use inside the Quantarks app. See &quot;How Audio Content Should Work in the App&quot; for more details.">*.qmp3</code> file.</p>
+                            <p>
+                                <strong>NOTE:</strong> This mereley creates a <code>File</code> object out of the file <code>file<wbr>Path</code> points to. Then it passes the <code>File</code> object
+                                to <a href="#extract_file"><code>Extract(File)</code>.</a>
+                            </p>
+                            <p>
+                                <strong>PARAMETERS:</strong>
+                                <ul>
+                                    <li>
+                                        <code><span class="kw">Uri</span> <span class="var">file<wbr>Path</span></code>
+                                        <p>The path of the <code>*.qmp3</code> file to be extracted.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p><strong>RETURNS:</strong> The new Q<wbr>Audio object that results from this operation.</p>
+                            <p>
+                                <strong>THROWS:</strong>
+                                <ul>
+                                    <li>
+                                        <code>File<wbr>Not<wbr>Found<wbr>Exception</code>
+                                        <p>Thrown when the app cannot find the file pertained to by the URI.</p>
+                                    </li>
+                                    <li>
+                                        <code>Uri<wbr>Format<wbr>Exception</code>
+                                        <p>Thrown when the URI passed to this method has invalid format.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </dd>
+
+                        <dt id="extract_file">Extract(File)</dt>
+                        <dd>
+                            <pre><span class="kw">public static</span> <span class="class">QAudio</span> Extract(<span class="class">File</span> <span class="var">filePath</span>)
+    <span class="kw">throws</span> <span class="class">FileNotFoundException</span>, <span class="class">UriFormatException</span>;</pre>
+                            <p>Extracts the audio and transcript from a <code title="The QMP3 file is a non-standard file type created for use inside the Quantarks app. See &quot;How Audio Content Should Work in the App&quot; for more details.">*.qmp3</code> file.</p>
+                            <p>
+                                <strong>PARAMETERS:</strong>
+                                <ul>
+                                    <li>
+                                        <code><span class="class">File</span> <span class="var">file<wbr>Path</span></code>
+                                        <p>The <code>*.qmp3</code> file to be extracted.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p><strong>RETURNS:</strong> The new Q<wbr>Audio object that results from this operation.</p>
+                            <p>
+                                <strong>THROWS:</strong>
+                                <ul>
+                                    <li>
+                                        <code>File<wbr>Not<wbr>Found<wbr>Exception</code>
+                                        <p>Thrown when the app cannot find the file pertained to by the URI.</p>
+                                    </li>
+                                    <li>
+                                        <code>Uri<wbr>Format<wbr>Exception</code>
+                                        <p>Thrown when the URI passed to this method has invalid format.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </dd>
+                    </dl>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>
+            Quantarks&trade; Team &copy; 2018-2019
+        </p>
+        <nav>
+            <ul>
+                <li><a href="https://trello.com/b/nGIY2gxU/quantarks">Official Trello Board</a></li>
+                <li><a href="https://github.com/quantarks">Official GitHub Account</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
