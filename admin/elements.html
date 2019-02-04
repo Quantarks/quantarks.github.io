@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quantarks Web</title>
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/app.css" />
+
+    <script src="/src/index.js"></script>
+  </head>
+
+  <body>
+    <main class="app" aria-labelledby="element-name">
+      <section class="elements-selection" aria-labelledby="site-title">
+        <img src="/assets/Quantarks.png" alt="Quantarks logo" class="logo">
+        <div class="elements-grid"></div>
+      </section>
+      <section class="elements-details">
+        <button aria-label="Go back" class="back js-back">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.829999923706055 24">
+            <defs>
+              <linearGradient id="graphic-fill">
+                <stop offset="5%" stop-color="#32d3f4" />
+                <stop offset="95%" stop-color="#077287" />
+              </linearGradient>
+            </defs>
+            <path d="M14.83 2.83L12 0 0 12l12 12 2.83-2.83L5.66 12z" fill="url(#graphic-fill)"/>
+          </svg>
+        </button>
+        <figure class="element-symbol" aria-labelledby="element-symbol">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="478.084 182.621 394 455"
+               width="394" height="455">
+            <defs>
+              <clipPath id="_clipPath_IOWs0vOlBtV6uBZpMpmCxa24u1zVV7w4">
+                <rect x="478.084" y="182.621" width="393.831" height="454.757" />
+              </clipPath>
+            </defs>
+            <g clip-path="url(#_clipPath_IOWs0vOlBtV6uBZpMpmCxa24u1zVV7w4)">
+              <linearGradient id="_lgradient_1" x1="0.1464466094067262" y1="0.14644660940672627" x2="0.8535533905932737" y2="0.8535533905932737"
+                              gradientTransform="matrix(393.831,0,0,454.757,478.084,182.621)" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-opacity="1" style="stop-color:rgb(50,211,244)" />
+                <stop offset="98.69565217391305%" stop-opacity="1" style="stop-color:rgb(7,114,135)" />
+              </linearGradient>
+              <polygon points="871.916,523.689,675,637.379,478.084,523.689,478.084,296.311,675,182.621,871.916,296.311" fill="url(#_lgradient_1)" />
+              <clipPath id="_clipPath_HNePqfzvcgfvZP3vdOzg6iZmc20XyJax">
+                <polygon points="871.916,523.689,675,637.379,478.084,523.689,478.084,296.311,675,182.621,871.916,296.311" fill="url(#_lgradient_1)" />
+              </clipPath>
+              <g clip-path="url(#_clipPath_HNePqfzvcgfvZP3vdOzg6iZmc20XyJax)">
+                <polygon points="854.267,513.5,675,617,495.733,513.5,495.733,306.5,675,203,854.267,306.5" fill="rgb(1,28,45)" />
+                <radialGradient id="_rgradient_1" fx="0.4999999999999998" fy="0.4975845410628017" cx="0.5" cy="0.5" r="0.5"
+                                gradientTransform="matrix(834,0,0,-826,258,617)" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-opacity="0.65" style="stop-color:rgb(50,211,244)" />
+                  <stop offset="100%" stop-opacity="0" style="stop-color:rgb(50,211,244)" />
+                </radialGradient>
+                <polygon points="854.267,513.5,675,617,495.733,513.5,495.733,306.5,675,203,854.267,306.5" fill="url(#_rgradient_1)" />
+              </g>
+            </g>
+          </svg>
+          <figcaption class="element-symbol--inner" id="element-symbol"><p>
+            <span class="vis-hid">Element Symbol: </span>H
+          </p></figcaption>
+        </figure>
+        <h2 class="element-title" id="element-name">Hydrogen</h2>
+        <p class="electron-configuration" id="electron-conf">1s<sup>1</sup></p>
+        <div class="element-appearance" id="appearance"></div>
+        <ul class="buttons">
+          <li tabindex="1">
+            <div>
+              <span>Atomic Number</span>
+              <span id="atomic-number">1</span>
+              <p>The number of protons in an element's atom</p>
+            </div>
+          </li>
+          <li tabindex="1">
+            <div>
+              <span>Type</span>
+              <span id="type">Non-Metal</span>
+              <p>Is it a metal, metalloid, or non-metal?</p>
+            </div>
+          </li>
+          <li tabindex="1">
+            <div>
+              <span>Group</span>
+              <span id="group">Non-Metal</span>
+              <p>Also known as category</p>
+            </div>
+          </li>
+          <li tabindex="1">
+            <div>
+              <span>Atomic Radius</span>
+              <span id="atomic-radius">1.1</span>
+              <p>The size of the element's atom</p>
+            </div>
+          </li>
+          <li tabindex="1">
+            <div>
+              <span>Boiling Point</span>
+              <span id="boiling-point">20.271 K</span>
+              <p>The temperature that makes this element boil</p>
+            </div>
+          </li>
+          <li tabindex="1">
+            <div>
+              <span>Melting Point</span>
+              <span id="melting-point">13.99 K</span>
+              <p>The temperature that makes this element melt</p>
+            </div>
+          </li>
+        </ul>
+        <ul class="images">
+          <li tabindex="1">
+            <img src="/assets/element-images/beryl.jpg" alt="">
+          </li>
+          <li tabindex="1">
+            <img src="/assets/element-images/boron.jpg" alt="">
+          </li><li tabindex="1">
+            <img src="/assets/element-images/c-60.jpg" alt="">
+          </li><li tabindex="1">
+            <img src="/assets/element-images/c-60.jpg" alt="">
+          </li><li tabindex="1">
+            <img src="/assets/element-images/c-60.jpg" alt="">
+          </li><li tabindex="1">
+            <img src="/assets/element-images/c-60.jpg" alt="">
+          </li>
+        </ul>
+        <article class="longform">
+          <section>
+            <h2>History</h2>
+            <div id="history">
+              <p>
+                In the early 1500s the alchemist Paracelsus noted that the bubbles given off when iron filings were added to sulfuric
+                acid were flammable. In 1671 Robert Boyle made the same observation. Neither followed up their discovery of hydrogen,
+                and so Henry Cavendish gets the credit. In 1766 he collected the bubbles and showed that they were different from other
+                gases. He later showed that when hydrogen burns it forms water, thereby ending the belief that water was an element.
+                The gas was given its name hydro-gen, meaning water-former, by Antoine Lavoisier.</p>
+                
+              <p>
+                In 1931, Harold Urey and his colleagues at Columbia University in the US detected a second, rarer, form of hydrogen. This has twice the mass of
+                normal hydrogen, and they named it deuterium.
+              </p>
+            </div>
+          </section>
+
+          <section class="spotlight">
+            <h2><span class="spotlight__label">Spotlight on </span><span id="discoverer">Henry Cavendish</span></h2>
+            <figure class="spotlight__image">
+              <img src="/assets/hcavendish.jpg" alt="Henry Cavendish">
+            </figure>
+            <div id="spotlight-discoverer">
+              <p>
+                Henry Cavendish was an English natural philosopher, scientist,
+                and an important experimental and theoretical chemist and physicist. Cavendish is noted for his discovery of hydrogen
+                or what he called "inflammable air". He described the density of inflammable air, which formed water on combustion,
+                in a 1766 paper "On Factitious Airs". Antoine Lavoisier later reproduced Cavendish's experiment and gave the element
+                its name.</p>
+  
+                <p>A notoriously shy man (it has been postulated that he had what is now called childhood autism),
+                Cavendish was nonetheless distinguished for great accuracy and precision in his researches into the composition of
+                atmospheric air, the properties of different gases, the synthesis of water, the law governing electrical attraction and
+                repulsion, a mechanical theory of heat, and calculations of the density (and hence the mass) of the Earth. His
+                experiment to measure the density of the Earth has come to be known as the Cavendish experiment.</p>
+            </div>
+          </section>
+
+          <section>
+            <h2>Uses</h2>
+            <div id="uses">
+              <p>In the chemical industry it is used to make ammonia for agricultural fertiliser (the Haber process) and cyclohexane and
+              methanol, which are intermediates in the production of plastics and pharmaceuticals. It is also used to remove sulfur
+              from fuels during the oil-refining process. Large quantities of hydrogen are used to hydrogenate oils to form fats, for
+              example to make margarine.</p>
+              
+              <p>In the glass industry hydrogen is used as a protective atmosphere for making flat glass
+              sheets. In the electronics industry it is used as a flushing gas during the manufacture of silicon chips.</p>
+              
+              <p>The low
+              density of hydrogen made it a natural choice for one of its first practical uses – filling balloons and airships.
+              However, it reacts vigorously with oxygen (to form water) and its future in filling airships ended when the Hindenburg
+              airship caught fire.</p>
+            </div>
+          </section>
+
+          <section>
+            <h2>Dangers</h2>
+            <div id="dangers">
+              <p>
+                <ul>
+                  <li>Fire Hazard</li>
+                  <li>Burns</li>
+                  <li>Explosion</li>
+                  <li>Poison</li>
+                  <li>It is dangerous only because it cuts off the supply of oxygen humans need to breathe.</li>
+                </ul>
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <img src="/assets/markers/actinium.jpg" class="float--on-desktop marker" alt="QR Code" id="marker">
+            <h2>Try the Quantarks App</h2>
+            <p>Download the Quantarks app and use it to scan the code for more content.</p>
+            <a href="#!" class="button button--cta">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 48.09983825683594"><path d="M8 36.1c0 1.1.9 2 2 2h2v7c0 1.66 1.34 3 3 3s3-1.34 3-3v-7h4v7c0 1.66 1.34 3 3 3s3-1.34 3-3v-7h2c1.1 0 2-.9 2-2v-20H8v20zm-5-20c-1.66 0-3 1.34-3 3v14c0 1.66 1.34 3 3 3s3-1.34 3-3v-14c0-1.66-1.34-3-3-3zm34 0c-1.66 0-3 1.34-3 3v14c0 1.66 1.34 3 3 3s3-1.34 3-3v-14c0-1.66-1.34-3-3-3zM27.06 4.42l2.61-2.61A.997.997 0 1 0 28.26.4L25.3 3.35A11.92 11.92 0 0 0 20 2.1c-1.92 0-3.72.46-5.33 1.26L11.7.39a.997.997 0 1 0-1.41 1.41l2.62 2.62C9.94 6.61 8 10.13 8 14.1h24c0-3.98-1.95-7.5-4.94-9.68zM16 10.1h-2v-2h2v2zm10 0h-2v-2h2v2z"/></svg>
+              <span>Download APK</span>
+            </a>
+            <a href="#!" class="button">
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 28 34">
+                <path d="M28 12h-8V0H8v12H0l14 14 14-14zM0 30v4h28v-4H0z" />
+              </svg>
+            <span>Download Markers</span></a>
+          </section>
+        </article>
+      </section>
+    </main>
+    <dialog class="modal"></dialog>
+  </body>
+</html>

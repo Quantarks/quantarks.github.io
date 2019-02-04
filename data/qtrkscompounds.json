@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Acetamide",
+        "formula": "C{2}H{5}NO",
+        "summary": "Acetamide is used primarily as a solvent and a plasticizer. Workers may be exposed in the plastics and chemical industries. It causes mild skin irritation from acute (short-term) exposure. No information is available on the chronic (long-term), reproductive/developmental, or carcinogenic effects of acetamide in humans. EPA has not classified acetamide for carcinogenicity."
+    },
+    {
+        "name": "Acetic acid",
+        "formula": "CH{3}COOH",
+        "summary": "Acetic Acid is a man-made carboxylic acid with germ-killing and antifungal properties. Although its method of action is not fully known, undissociated acetic acid may improve dissolving lipids allowing increased fatty acid accumulation on the cell membrane or in other cell wall structures. Acetic acid, as a weak acid, can stop carbohydrate digestion resulting in later death of the organism."
+    },{
+        "name": "Acetone",
+        "formula": "C{3}H{6}O",
+        "summary": "Acetone is a colorless, dangerous and unstable, flammable organic solvent. Acetone is produced naturally in plants, trees, forest fires, vehicle exhaust and as a breakdown product of animal fat digestion. This agent may be present in very small amounts in urine and blood; larger amounts may be found in the urine and blood of diabetics. Acetone is poisonous in high doses."
+    },
+    {
+        "name": "Aluminium chloride",
+        "formula": "AlCl{3}",
+        "summary": "It is a straw-colored liquid. Denser than water. Contact may cause severe irritation to skin, eyes, and mucous membranes. May be toxic by ingestion."
+    },
+    {
+        "name": "Aluminium nitrate",
+        "formula": "Al(NO{3}){3}",
+        "summary": ""
+    },
+    {
+        "name": "Aluminium sulfate",
+        "formula": "Al{2}(SO{4}){3}",
+        "summary": " It is soluble in water and is mainly used as a coagulating agent (promoting particle collision by neutralizing charge) in the purification of drinking water and waste water treatment plants, and also in paper manufacturing."
+    },
+    {
+        "name": "Ammonia",
+        "formula": "NH{3}",
+        "summary": "Ammonia is a colourless gas with a characteristic pungent smell. It is a common nitrogenous waste, particularly among aquatic organisms, and it contributes significantly to the nutritional needs of terrestrial organisms by serving as a precursor to food and fertilizers. Ammonia, either directly or indirectly, is also a building block for the synthesis of many medicines and is used in many commercial cleaning products. It is mainly collected by downward displacement of both air and water. Ammonia is named for the Ammonians, worshipers of the Egyptian god Amun, who used ammonium chloride in their rituals."
+    },
+    {
+        "name": "Antimony Trichloride",
+        "formula": "SbCl{3}",
+        "summary": "Antimony trichloride is the chemical compound with the formula SbCl3. The soft colorless solid with a pungent odor was known to the alchemists as butter of antimony."
+    },
+    {
+        "name": "Antimony(V) chloride",
+        "formula": "SbCl{5}",
+        "summary": "Antimony pentachloride is a chemical compound with the formula SbCl5. It is a colourless oil, but typical samples are yellowish due to impurities. Owing to its tendency to hydrolyse to hydrochloric acid, SbCl5 is a highly corrosive substance and carbonizes non-fluorinated plastics."
+    },
+    {
+        "name": "Bismuth(III) chloride",
+        "formula": "BiCl{3}",
+        "summary": "Bismuth chloride is toxic. It causes irritation to the gastrointestinal and respiratory tract. Contact with skin may cause burns. "
+    },
+]

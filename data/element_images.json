@@ -1,0 +1,214 @@
+[
+  {
+    "atomic_number": 1,
+    "images": [
+      {
+        "id": "hydrogen-2",
+        "comments": ""
+      },
+      {
+        "id": "orion-nebula",
+        "comments": "The Great Orion Nebula, 80% hydrogen"
+      }
+    ]
+  },
+  {
+    "atomic_number": 2,
+    "images": [
+      {
+        "id": "helium-2",
+        "comments": ""
+      },
+      {
+        "id": "sun",
+        "comments": "Helium accounts for about 24% of the Sun's mass. Helium was discovered in the Sun first before it was found here on Earth."
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "atomic_number": 3,
+    "images": [
+      {
+        "id": "lithium",
+        "comments": ""
+      },
+      {
+        "id": "lithium-white",
+        "comments": "During more than one year, white powder slowly formed. This is lithium oxide, Li{2}O, due to a small residue of oxygen in the argon atmosphere. "
+      }
+    ]
+  },
+  {
+    "atomic_number": 4,
+    "images": [
+      {
+        "id": "beryllium",
+        "comments": ""
+      },
+      {
+        "id": "beryl",
+        "comments": "Natural beryl, Be{3}Al{2}(SiO{3}){6}, 9 grams."
+      }
+    ]
+  },
+  {
+    "atomic_number": 5,
+    "images": [
+      {
+        "id": "boron",
+        "comments": "Crystalline boron, which is shown here, is nearly as hard as diamond (9.5 on Mohs scale, diamond has 10)."
+      },
+      {
+        "id": "brown-boron",
+        "comments": "Amorphous brown boron, another boron allotrope, as powder in a glass jar. 5 grams, jar diameter 4 cm."
+      },
+      {
+        "id": "ulexite",
+        "comments": "Ulexite, a complex boron mineral and one of the most important ores for boron mining. This one is from the borax mine near the town Boron in California. The orange inclusions are realgar. "
+      }
+    ]
+  },
+  {
+    "atomic_number": 6,
+    "images": [
+      {
+        "id": "carbon",
+        "comments": "Carbon is the base of all life and the element with the most complex chemistry, which is called organic chemistry. Coal, which consists mostly of carbon, is known and used since prehistoric time."
+      },
+      {
+        "id": "diamond",
+        "comments": "Rough diamond, this photo is public domain. Diamond, a cubic carbon crystal, is the hardest known mineral."
+      },
+      {
+        "id": "c-60",
+        "comments": "C{6}{0} fullerenes (buckyballs), dissolved in toluene."
+      },
+      {
+        "id": "sic",
+        "comments": "Silicon carbide, SiC, 100 grams, 5 x 10 cm. The very hard, brittle material is used for example for grinding."
+      }
+    ]
+  },
+  {
+    "atomic_number": 7,
+    "images": [
+      {
+        "id": "nitrogen",
+        "comments": "Vial of glowing ultrapure nitrogen, N2."
+      },
+      {
+        "id": "air",
+        "comments": "Air is composed of 78% N{2}"
+      }
+    ]
+  },
+  {
+    "atomic_number": 8,
+    "images": [
+      {
+        "id": "oxygen-2",
+        "comments": "Vial of glowing ultrapure oxygen, O2"
+      },
+      {
+        "id": "fire",
+        "comments": "Fire is an exothermic reaction of wood with oxygen from the air."
+      }
+    ]
+  },
+  {
+    "atomic_number": 9,
+    "images": [
+      {
+        "id": "fluorite",
+        "comments": "Natural fluorite, stained by impurities, 15 grams."
+      },
+      {
+        "id": "fluorite-2",
+        "comments": "Another fluorite, 25 grams, 3 x 3.5 cm. Inclusions of europium2+ give it a purple color (left) and let it fluoresce blue under UV light (right)."
+      },
+      {
+        "id": "fluorine",
+        "comments": "Fluorine gas, but only as photomontage, because fluorine reacts even with glass. It could look like that (under a high pressure, otherwise fluorine is nearly colorless), before it would corrode the glass and the gas would be used up."
+      }
+    ]
+  },
+  {
+    "atomic_number": 10,
+    "images": [
+      {
+        "id": "neon",
+        "comments": "Vial of glowing ultrapure neon."
+      }
+    ]
+  },
+  {
+    "atomic_number": 11,
+    "images": [
+      {
+        "id": "sodium",
+        "comments": "0.5 grams sodium with a white hydroxide (NaOH) crust under paraffin oil."
+      },
+      {
+        "id": "sodium-vapor-lamp",
+        "comments": "Sodium glows in a very specific yellow. A common application for this are sodium vapor lamps, which are often used as street lights, like the one shown here. Those spend relatively little energy, give a good contrast and are better for nocturnal insects."
+      }
+    ]
+  },
+  {
+    "atomic_number": 12,
+    "images": [
+      {
+        "id": "magnesium",
+        "comments": "Ultrapure magnesium crystal from two sides."
+      },
+      {
+        "id": "magnesium-swarf",
+        "comments": "Magnesium swarf in a glass jar, 1 gram, jar diameter 4 cm."
+      },
+      {
+        "id": "chlorophyll",
+        "comments": "Chlorophyll gives the green color to plants. These complex molecules allow photosynthesis. In their center is a Mg2+ ion."
+      }
+    ]
+  },
+  {
+    "atomic_number": 13,
+    "images": [
+      {
+        "id": "aluminium",
+        "comments": "Pure aluminium foil."
+      },
+      {
+        "id": "alu-plate",
+        "comments": "Aluminium plate from India for the burning of incense sticks. 5 x 20 cm, 45 grams."
+      }
+    ]
+  },
+  {
+    "atomic_number": 14,
+    "images": [
+      {
+        "id": "silicon-2",
+        "comments": "Ultrapure silicon chunks."
+      },
+      {
+        "id": "sodium-vapor-lamp",
+        "comments": "Sodium glows in a very specific yellow. A common application for this are sodium vapor lamps, which are often used as street lights, like the one shown here. Those spend relatively little energy, give a good contrast and are better for nocturnal insects."
+      }
+    ]
+  },
+  {
+    "atomic_number": 15,
+    "images": [
+      {
+        "id": "silicon-2",
+        "comments": "Ultrapure silicon chunks."
+      },
+      {
+        "id": "sodium-vapor-lamp",
+        "comments": "Sodium glows in a very specific yellow. A common application for this are sodium vapor lamps, which are often used as street lights, like the one shown here. Those spend relatively little energy, give a good contrast and are better for nocturnal insects."
+      }
+    ]
+  }
+]

@@ -7,6 +7,15 @@
   transition: all 300ms;
 }
 
+button,
+input,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 html {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;

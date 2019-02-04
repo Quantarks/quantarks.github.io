@@ -1,0 +1,128 @@
+[
+  {
+    "id": 9398,
+    "name": "Ethanol",
+    "formula": "C2H6O",
+    "information": "Ethanol is a clear, colorless liquid rapidly absorbed from the digestive system and distributed throughout the body. It has can kill bacteria and is used often as a disinfectant. It is widely used as a solvent and preservative in medical preparations as well as serving as the primary ingredient in alcoholic beverages. Indeed, ethanol has widespread use as a solvent of substances intended for human contact or consumption, including scents, flavorings, colorings, and medicines. Ethanol has a depressive effect on the central nervous system and because of its psychoactive effects, it is considered a drug. Ethanol affects multiple systems in the brain. Death from ethanol consumption is possible when blood alcohol level reaches 0.4%. A blood level of 0.5% or more is commonly fatal. Levels of even less than 0.1% can cause intoxication, with unconsciousness often occurring at 0.3-0.4 %. Ethanol is digested by the body as an energy-providing carbohydrate that can be used for energy in the citric acid cycle or for biosynthesis. Ethanol within the human body is converted into acetaldehyde, which is more toxic than ethanol. Acetaldehyde is linked to most of the clinical effects of alcohol. It has been shown to increase the risk of developing cirrhosis of the liver, multiple forms of cancer, and alcoholism. Industrially, ethanol is produced both as a petrochemical, through the hydration of ethylene, and biologically, by fermenting sugars with yeast. Small amounts of ethanol are endogenously produced by microorganisms in the gut through anaerobic fermentation. However most ethanol detected in biofluids and tissues likely comes from consumption of alcoholic beverages. Absolute ethanol or anhydrous alcohol generally refers to purified ethanol, containing no more than one percent water. Absolute alcohol is not intended for human consumption. It often contains trace amounts of toxic benzene (used to remove water by azeotropic distillation). Consumption of this form of ethanol can be fatal over a short time period. Generally absolute or pure ethanol is used as a solvent for lab and industrial settings where water will disrupt a desired reaction. Pure ethanol is classed as 200 proof in the USA and Canada, equivalent to 175 degrees proof in the UK system. Ethanol is a general biomarker for the consumption of alcohol",
+    "reference": {
+      "name": "Human Metabolome Database (HMDB)",
+      "description": "The Human Metabolome Database (HMDB) is a freely available electronic database containing detailed information about small molecule metabolites found in the human body.",
+      "url": "http://www.hmdb.ca/metabolites/HMDB0000108"
+    }
+  },
+  {
+    "id": 5025,
+    "name": "oleic acid",
+    "formula": "C18H34O2",
+    "information": "Oleic acid is an unsaturated fatty acid that is the most widely distributed and abundant fatty acid in nature. It is used commercially in the preparation of oleates and lotions, and as a pharmaceutical solvent (Stedman, 26th ed). It is commonly found as a major constituent of plant oils e. g. olive oil (about 80%), almond oil (about 80%) and many others, mainly as glyceride. Constituent of tall oil and present in fruits It is used as a food additive. Oleic acid is used in manufacturing of surfactants, soaps, plasticizers,also as an emulsifying agent in foods and pharmaceuticals. Herbicide, insecticide, fungicide (Dictionary of Organic Compounds). Oleic acid is a fatty acid that occurs naturally in various animal and vegetable fats and oils. It is an odorless, colourless oil, although commercial samples may be yellowish. In chemical terms, oleic acid is classified as a monounsaturated omega-9 fatty acid. The term \"oleic\" means related to, or derived from, oil or olive, the oil that is predominantly composed of oleic acid . Oleic acid is found to be associated with isovaleric acidemia, which is an inborn error of metabolism.",
+    "reference": {
+      "name": "Human Metabolome Database (HMDB)",
+      "description": "The Human Metabolome Database (HMDB) is a freely available electronic database containing detailed information about small molecule metabolites found in the human body.",
+      "url": "http://www.hmdb.ca/metabolites/HMDB0000207"
+    }
+  },
+  {
+    "id": 5540,
+    "name": "Ascorbic acid",
+    "formula": "C6H8O6",
+    "information": "A six carbon compound related to glucose. It is found naturally in citrus fruits and many vegetables. Ascorbic acid is an essential nutrient in human diets, and necessary to maintain connective tissue and bone. Its biologically active form, vitamin C, functions as a reducing agent and coenzyme in several metabolic pathways. Vitamin C is considered an antioxidant.",
+    "reference": {
+      "name": "DrugBank",
+      "description": "The DrugBank database is a unique bioinformatics and cheminformatics resource that combines detailed drug (i.e. chemical, pharmacological and pharmaceutical) data with comprehensive drug target (i.e. sequence, structure, and pathway) information",
+      "url": "http://www.drugbank.ca/drugs/DB00126"
+    }
+  },
+  {
+    "id": 7495,
+    "name": "Helium;lithium",
+    "formula": "HeLi"
+  },
+  {
+    "id": 3827,
+    "name": "Beryllium dihydroxide",
+    "formula": "BeH2O2"
+  },
+  {
+    "id": 9885,
+    "name": "Dilithium tetraborate",
+    "formula": "B4Li2O7"
+  },
+  {
+    "id": 5579,
+    "name": "Boron trichloride",
+    "formula": "BCl3",
+    "information": "Boron trichloride is a colorless gas with a pungent odor. Fumes irritate the eyes and mucous membranes. Corrosive to metals and tissue and is toxic. Under prolonged exposure to fire or intense heat, the containers may rupture violently and rocket. Used as a catalyst in chemical manufacture, in soldering fluxes, and for many other uses.",
+    "reference": {
+      "name": "CAMEO Chemicals",
+      "url": "https://cameochemicals.noaa.gov/chemical/254"
+    }
+  },
+  {
+    "id": 4972,
+    "name": "Borazine",
+    "formula": "B3H6N3"
+  },
+  {
+    "id": 8110,
+    "name": "Iron(III) oxide",
+    "formula": "Fe2O3"
+  },
+  {
+    "id": 5288,
+    "name": "Magnesium oxide",
+    "formula": "MgO",
+    "information": "Magnesium oxide is only found in individuals that have used or taken this drug. It is an inorganic compound that occurs in nature as the mineral \"periclase\". It combines quickly with water to form magnesium hydroxide. It is used as an antacid and mild laxative and has many nonmedicinal uses. The term \"Milk of Magnesia\" was first used to describe a white aqueous, mildly alkaline suspension of magnesium hydroxide formulated at about 8% w/v. Milk of magnesia is primarily used to alleviate constipation, but can also be used to relieve indigestion and heartburn. When taken internally by mouth as a laxative, the osmotic force of the magnesia suspension acts to draw fluids from the body and to retain those already within the lumen of the intestine, serving to distend the bowel, thus stimulating nerves within the colon wall, inducing peristalsis and resulting in bowel movement. Magnesium supplements have also been shown to reduce platelet aggregation by inhibiting in the influx of calcium, a crucial component of platelet aggregation.",
+    "reference": {
+      "name": "Human Metabolome Database (HMDB)",
+      "description": "The Human Metabolome Database (HMDB) is a freely available electronic database containing detailed information about small molecule metabolites found in the human body.",
+      "url": "http://www.hmdb.ca/metabolites/HMDB0015458"
+    }
+  },
+  {
+    "id": 3445,
+    "name": "Boron trioxide",
+    "formula": "B2O3"
+  },
+  {
+    "id": 9717,
+    "name": "Deuterium oxide",
+    "formula": "(2H)2O | H2O | D2O",
+    "information": "The isotopic compound of hydrogen of mass 2 (deuterium) with oxygen. (From Grant and Hackh's Chemical Dictionary, 5th ed) It is used to study mechanisms and rates of chemical or nuclear reactions, as well as biological processes.",
+    "reference":  {
+        "name": "MeSH",
+        "url": "https://www.ncbi.nlm.nih.gov/mesh/68017666"
+    }
+  },
+  {
+      "id": 9254,
+      "name": "Ozone",
+      "formula": "O3",
+      "information": "The unstable triatomic form of oxygen, O3. It is a powerful oxidant that is produced for various chemical and industrial uses. Its production is also catalyzed in the ATMOSPHERE by ULTRAVIOLET RAY irradiation of oxygen or other ozone precursors such as VOLATILE ORGANIC COMPOUNDS and NITROGEN OXIDES. About 90% of the ozone in the atmosphere exists in the stratosphere (STRATOSPHERIC OZONE).",
+      "reference": {
+          "name": "MeSH",
+          "url": "https://www.ncbi.nlm.nih.gov/mesh/68010126"
+      }
+  },
+  {
+      "id": 8956,
+      "name": "Water",
+      "formula": "H2O",
+      "information": "Water is a chemical substance that is essential to all known forms of life. It appears colorless to the naked eye in small quantities, though it is actually slightly blue in color. It covers 71% of Earth's surface. Current estimates suggest that there are 1. 4 billion cubic kilometers (330 million m3) of it available on Earth, and it exists in many forms. It appears mostly in the oceans (saltwater) and polar ice caps, but it is also present as clouds, rain water, rivers, freshwater aquifers, lakes, and sea ice. Water in these bodies perpetually moves through a cycle of evaporation, precipitation, and runoff to the sea. Clean water is essential to human life. In many parts of the world, it is in short supply. From a biological standpoint, water has many distinct properties that are critical for the proliferation of life that set it apart from other substances. It carries out this role by allowing organic compounds to react in ways that ultimately allow replication. All known forms of life depend on water. Water is vital both as a solvent in which many of the body's solutes dissolve and as an essential part of many metabolic processes within the body. Metabolism is the sum total of anabolism and catabolism. In anabolism, water is removed from molecules (through energy requiring enzymatic chemical reactions) in order to grow larger molecules (e. g. starches, triglycerides and proteins for storage of fuels and information). In catabolism, water is used to break bonds in order to generate smaller molecules (e. g. glucose, fatty acids and amino acids to be used for fuels for energy use or other purposes). Water is thus essential and central to these metabolic processes. Water is also central to photosynthesis and respiration. Photosynthetic cells use the sun's energy to split off water's hydrogen from oxygen. Hydrogen is combined with CO2 (absorbed from air or water) to form glucose and release oxygen. All living cells use such fuels and oxidize the hydrogen and carbon to capture the sun's energy and reform water and CO2 in the process (cellular respiration). Water is also central to acid-base neutrality and enzyme function. An acid, a hydrogen ion (H+, that is, a proton) donor, can be neutralized by a base, a proton acceptor such as hydroxide ion (OH-) to form water. Water is considered to be neutral, with a pH (the negative log of the hydrogen ion concentration) of 7. Acids have pH values less than 7 while bases have values greater than 7. Stomach acid (HCl) is useful to digestion. However, its corrosive effect on the esophagus during reflux can temporarily be neutralized by ingestion of a base such as aluminum hydroxide to produce the neutral molecules water and the salt aluminum chloride. Human biochemistry that involves enzymes usually performs optimally around a biologically neutral pH of 7. 4.",
+      "reference": {
+          "name": "Human Metabolome Database (HMDB)",
+          "url":"http://www.hmdb.ca/metabolites/HMDB0002111",
+          "description": "The Human Metabolome Database (HMDB) is a freely available electronic database containing detailed information about small molecule metabolites found in the human body."
+      }
+  },
+  {
+    "id": 0,
+    "name": "",
+    "formula": "",
+    "information": "",
+    "reference": {
+      "name": "",
+      "url": "",
+      "description":""
+    }
+  }
+]
